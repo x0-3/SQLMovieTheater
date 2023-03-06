@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <div id="wrapper"class="">
+    <div id="wrapper">
         <main>
             <div id="contenu">
                 <h1>PDO Cinema</h1>

@@ -1,6 +1,6 @@
 <?php ob_start();?>
 
-<p>They're <? $stmt->rowCount()?></p>
+<p>They're <? $stmt->rowCount()?> movies</p>
 
 <table>
     <thead>
@@ -15,10 +15,10 @@
 
             foreach($stmt->fetchAll() as $movie){?>
 
-            <tr><?= $movie["title"]?></tr>
-            <tr><?= $movie["releaseDateFrance"]?></tr>
-            
-            <?php
+                <tr><?= $movie["title"]?></tr>
+                <tr><?= $movie["releaseDateFrance"]?></tr>
+                
+                <?php
             }
         ?>
     </tbody>
