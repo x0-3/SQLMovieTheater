@@ -1,8 +1,8 @@
 <?php ob_start();?>
 
-<p>They're <? $stmt->rowCount()?> movies</p>
+<p class="uk-label uk-label-warning">They're <? $stmt->rowCount()?> movies</p>
 
-<table>
+<table class="uk-table uk-table-striped">
     <thead>
         <tr>
             <th>title</th>
