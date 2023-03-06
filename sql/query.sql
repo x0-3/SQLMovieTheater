@@ -1,5 +1,5 @@
 -- a. Informations d’un film (id_film) : titre, année, durée (au format HH:MM) et réalisateur
-SELECT title, DATE_FORMAT(releaseDateFrance,"%d/%m/%Y") AS releaseDate, DATE_FORMAT(runningTime, "%H:%i") AS RunningTime, familyName,name
+SELECT title, DATE_FORMAT(releaseDateFrance,"%d/%m/%Y") AS releaseDate, TIME_FORMAT(SEC_TO_TIME(runningTime),'%H:%i') AS RunningTime, familyName,name
 FROM movie m
 INNER JOIN producer pr
 ON m.idProducer = pr.idProducer
@@ -9,9 +9,9 @@ WHERE m.idMovie = 3
 
 
 -- b. Liste des films dont la durée excède 2h15 classés par durée (du plus long au plus court
-SELECT title, DATE_FORMAT(runningTime,'%Hh%i') AS duration
+SELECT title, TIME_FORMAT(SEC_TO_TIME(runningTime),'%H:%i') AS RunningTime
 FROM movie
-WHERE runningTime>= "2:15:00"
+WHERE runningTime>= 8100
 
 
 -- c. Liste des films d’un réalisateur (en précisant l’année de sortie)
