@@ -1,29 +1,25 @@
 <?php ob_start();?>
 
-<table class="uk-table uk-table-striped">
-    <thead>
-        <tr>
-            <th>title</th>
-            <th>release day</th>
-        </tr>
-    </thead>
+<section class="FeaturedMovies">
+    <?php foreach($stmt->fetchAll() as $movie){?>
 
-    <tbody>
-        <?php 
-
-            foreach($stmt->fetchAll() as $movie){?>
-
-                <tr>
-                    <td><?= $movie["title"]?></td>
-                    <td><?= $movie["releaseDay"]?></td>
-                </tr>
+    <a href="#">
+        <figure>
+            <img src="<?=$movie['poster']?>" alt="movie Poster">
                 
-                <?php
-            }
-        ?>
-    </tbody>
-</table>
-
+            <figcaption>
+                
+                <p><strong><?=$movie['title']?></strong></p>
+                <p><?=$movie['releaseDay']?></p>
+                
+            </figcaption>
+                
+        </figure>
+    </a>
+        
+    <?php } ?>
+</section>
+    
 <?php
 $title = "list movies";
 $secondTitle = "Featured Movies";

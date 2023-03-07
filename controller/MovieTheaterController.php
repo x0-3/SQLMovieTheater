@@ -10,7 +10,7 @@ class MovieTheaterController{
     public function listFilms(){
         $pdo = connect::Connection();
         $stmt = $pdo->query("
-            SELECT title, DATE_FORMAT(releaseDateFrance,'%d/%m/%Y') AS releaseDay
+            SELECT title, DATE_FORMAT(releaseDateFrance,'%d/%m/%Y') AS releaseDay, poster
             FROM movie
         ");
 

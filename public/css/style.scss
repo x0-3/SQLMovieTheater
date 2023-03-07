@@ -37,14 +37,57 @@
             }
         }
 
+        #wrapper{
+            main{
+                #contenu{
+                    h1{
+                        text-align: center;
+                        margin-top: 30px;
+                    }
+
+                    h2,.FeaturedMovies{
+                        padding: 25px 85px;
+                    }
+
+                    .FeaturedMovies{
+                        display: flex;
+                        width: 100%;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        a{
+                            width: 21%;
+                            text-decoration: none;
+                            color: black;
+
+                            figure{
+                                width: 100%;
+                                margin-bottom: 20px;
+    
+                                img{
+                                    width: 100%;
+                                    border-radius: 20px;
+                                }
+    
+                                figcaption{
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         footer{
             display: flex;
             width: 100%;
             align-items: center;
             justify-content: space-between;
             box-shadow: 2px 2px 4px #000000;
-            position: absolute;
-            bottom: 0;
+            // position: absolute;
+            // bottom: 0;
 
             .infos{
                 margin: 24px;

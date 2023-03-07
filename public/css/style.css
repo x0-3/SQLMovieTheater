@@ -26,14 +26,42 @@
   padding: 10px;
   color: black;
 }
+* body #wrapper main #contenu h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+* body #wrapper main #contenu h2, * body #wrapper main #contenu .FeaturedMovies {
+  padding: 25px 85px;
+}
+* body #wrapper main #contenu .FeaturedMovies {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+* body #wrapper main #contenu .FeaturedMovies a {
+  width: 21%;
+  text-decoration: none;
+  color: black;
+}
+* body #wrapper main #contenu .FeaturedMovies a figure {
+  width: 100%;
+  margin-bottom: 20px;
+}
+* body #wrapper main #contenu .FeaturedMovies a figure img {
+  width: 100%;
+  border-radius: 20px;
+}
+* body #wrapper main #contenu .FeaturedMovies a figure figcaption {
+  text-align: center;
+}
 * body footer {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   box-shadow: 2px 2px 4px #000000;
-  position: absolute;
-  bottom: 0;
 }
 * body footer .infos {
   margin: 24px;
