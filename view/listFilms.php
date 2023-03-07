@@ -1,7 +1,5 @@
 <?php ob_start();?>
 
-<p class="uk-label uk-label-warning">They're <? $stmt->rowCount()?> movies</p>
-
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
@@ -15,8 +13,10 @@
 
             foreach($stmt->fetchAll() as $movie){?>
 
-                <tr><?= $movie["title"]?></tr>
-                <tr><?= $movie["releaseDateFrance"]?></tr>
+                <tr>
+                    <td><?= $movie["title"]?></td>
+                    <td><?= $movie["releaseDay"]?></td>
+                </tr>
                 
                 <?php
             }
@@ -25,7 +25,7 @@
 </table>
 
 <?php
-$title = "list of movies";
-$secondTitle = "List of movies";
+$title = "list movies";
+$secondTitle = "Featured Movies";
 $content = ob_get_clean();
 require "view/template.php";
