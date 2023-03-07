@@ -20,7 +20,7 @@
             <ul>
                 <li><a href="index.php?action=listFilms">MOVIE</a></li>
                 <li><a href="index.php?action=listActors">ACTORS</a></li>
-                <li><a href="#">ROLES</a></li>
+                <li><a href="index.php?action=listRoles">ROLES</a></li>
                 <li><a href="#">PRODUCERS</a></li>
                 <li><a href="#">GENRES</a></li>
                 <li><a href="#">ADD</a></li>

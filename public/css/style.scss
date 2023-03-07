@@ -103,10 +103,9 @@
                     #listActors{
                         display: flex;
                         flex-wrap: wrap;
-                        width: 100%;
-                        margin-top: 30px;
-                        padding: 15px;
                         height: 80vh;
+                        align-items: center;
+                        justify-content: center;
 
                         .actorInfo{
                             display: flex;
@@ -117,6 +116,18 @@
 
                         a{
                             color: black;
+                        }
+                    }
+
+                    #RolesSection{
+                        display: flex;
+                        flex-wrap: wrap;
+                        height: 80vh;
+                        align-items: center;
+                        justify-content: center;
+
+                        .roleList{
+                            padding: 13px;
                         }
                     }
 

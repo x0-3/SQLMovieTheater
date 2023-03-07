@@ -77,10 +77,9 @@
 * body #wrapper main #contenu #listActors {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  margin-top: 30px;
-  padding: 15px;
   height: 80vh;
+  align-items: center;
+  justify-content: center;
 }
 * body #wrapper main #contenu #listActors .actorInfo {
   display: flex;
@@ -89,6 +88,16 @@
 }
 * body #wrapper main #contenu #listActors a {
   color: black;
+}
+* body #wrapper main #contenu #RolesSection {
+  display: flex;
+  flex-wrap: wrap;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+}
+* body #wrapper main #contenu #RolesSection .roleList {
+  padding: 13px;
 }
 * body footer {
   display: flex;
