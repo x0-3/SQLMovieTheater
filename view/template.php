@@ -17,7 +17,7 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#">MOVIE</a></li>
+                <li><a href="index.php?action=listFilms">MOVIE</a></li>
                 <li><a href="#">ACTORS</a></li>
                 <li><a href="#">ROLES</a></li>
                 <li><a href="#">PRODUCERS</a></li>
@@ -32,7 +32,6 @@
     <div id="wrapper">
         <main>
             <div id="contenu">
-                <h1>Movie List</h1>
                 <h2><?= $secondTitle ?></h2>
                 <?=$content?>
                 

@@ -8,12 +8,12 @@ spl_autoload_register(function($class_name){
 
 $ctrlMovieTheater = new MovieTheaterController();
 
+$id = (isset($_GET["id"])) ? $_GET["id"] : null;
+
 if(isset($_GET['action'])){
     switch($_GET['action']){
 
         case "listFilms": $ctrlMovieTheater->listFilms();break;
         case "movieDetail": $ctrlMovieTheater->movieDetail($id);break;
     }
-} else{
-    $ctrlMovieTheater->listFilms();
 }
