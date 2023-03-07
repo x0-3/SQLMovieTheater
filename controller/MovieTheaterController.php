@@ -45,8 +45,17 @@ class MovieTheaterController{
         require "view/listRoles.php";
     }
 
-    public function listProducer(){
-        
+    public function listProducers(){
+        $pdo = Connect ::Connection();
+        $stmt = $pdo->query("
+        SELECT familyName,name,title, DATE_FORMAT(releaseDateFrance,'%d/%m/%Y') AS releaseDate
+        FROM movie m
+        INNER JOIN producer pr 
+        ON m.idProducer=pr.idProducer
+        INNER JOIN person p
+        ON p.idPerson=pr.idPerson
+        ");
+        require "view\listProducers.php";
     }
 
     public function movieDetail($id){

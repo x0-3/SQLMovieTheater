@@ -131,6 +131,18 @@
                         }
                     }
 
+                    .producerSection{
+                        display: flex;
+                        flex-wrap: wrap;
+                        width: 100%;
+                        height: 80vh;
+                        align-items: center;
+                        justify-content: center;
+
+                        .producerList{
+                            padding: 13px;
+                        }
+                    }
                 }
             }
         }
