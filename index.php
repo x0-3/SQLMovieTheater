@@ -12,7 +12,7 @@ if(isset($_GET['action'])){
     switch($_GET['action']){
 
         case "listFilms": $ctrlMovieTheater->listFilms();break;
-        // case "listActeurs": $ctrlMovieTheater->listActeurs();break;
+        case "movieDetail": $ctrlMovieTheater->movieDetail($id);break;
     }
 } else{
     $ctrlMovieTheater->listFilms();

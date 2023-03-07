@@ -17,6 +17,15 @@ class MovieTheaterController{
         require "view/listFilms.php";
     }
 
+    public function movieDetail($id){
+        $pdo = Connect::Connection();
+        $stmt = $pdo->prepare("SELECT * FROM movie WHERE idMovie = :id");
+        $stmt->execute([
+            "id"=>$id
+        ]);
+
+        require "view\movieDetail.php";
+    }
 }
 
 
