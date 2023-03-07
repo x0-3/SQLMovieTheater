@@ -56,6 +56,24 @@
 * body #wrapper main #contenu .FeaturedMovies a figure figcaption {
   text-align: center;
 }
+* body #wrapper main #contenu .movieDesc {
+  display: flex;
+  justify-content: space-around;
+  height: 78vh;
+  width: 100%;
+}
+* body #wrapper main #contenu .movieDesc figure {
+  width: 25%;
+}
+* body #wrapper main #contenu .movieDesc figure img {
+  width: 100%;
+}
+* body #wrapper main #contenu .movieDesc .descrition {
+  width: 25%;
+}
+* body #wrapper main #contenu .movieDesc .descrition h1 {
+  margin-bottom: 50px;
+}
 * body footer {
   display: flex;
   width: 100%;

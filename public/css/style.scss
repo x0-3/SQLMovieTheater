@@ -76,6 +76,30 @@
                             }
                         }
                     }
+                
+                    
+                    .movieDesc {
+                        display: flex;
+                        justify-content: space-around;
+                        height: 78vh;;
+                        width: 100%;
+
+                        figure{
+                            width: 25%;
+
+                            img{
+                                width: 100%;
+                            }
+                        }
+
+                        .descrition{
+                            width: 25%;
+                            h1{
+                                margin-bottom: 50px;
+                            }
+                        }
+                    }
+
                 }
             }
         }
