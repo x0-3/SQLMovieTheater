@@ -143,6 +143,20 @@
                             padding: 13px;
                         }
                     }
+
+                    .genreSection{
+                        display: flex;
+                        flex-wrap: wrap;
+                        width: 100%;
+                        height: 80vh;
+                        align-items: center;
+                        justify-content: center;
+
+                        a{
+                            padding: 13px;
+                        }
+
+                    }
                 }
             }
         }

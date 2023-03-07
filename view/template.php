@@ -22,7 +22,7 @@
                 <li><a href="index.php?action=listActors">ACTORS</a></li>
                 <li><a href="index.php?action=listRoles">ROLES</a></li>
                 <li><a href="index.php?action=listProducers">PRODUCERS</a></li>
-                <li><a href="#">GENRES</a></li>
+                <li><a href="index.php?action=listGenres">GENRES</a></li>
                 <li><a href="#">ADD</a></li>
             </ul>
         </nav>

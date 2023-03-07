@@ -110,6 +110,17 @@
 * body #wrapper main #contenu .producerSection .producerList {
   padding: 13px;
 }
+* body #wrapper main #contenu .genreSection {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+}
+* body #wrapper main #contenu .genreSection a {
+  padding: 13px;
+}
 * body footer {
   display: flex;
   width: 100%;
