@@ -100,6 +100,26 @@
                         }
                     }
 
+                    #listActors{
+                        display: flex;
+                        flex-wrap: wrap;
+                        width: 100%;
+                        margin-top: 30px;
+                        padding: 15px;
+                        height: 80vh;
+
+                        .actorInfo{
+                            display: flex;
+                            flex-direction: column;
+                            margin: 10px;
+
+                        }
+
+                        a{
+                            color: black;
+                        }
+                    }
+
                 }
             }
         }
@@ -110,8 +130,6 @@
             align-items: center;
             justify-content: space-between;
             box-shadow: 2px 2px 4px #000000;
-            // position: absolute;
-            // bottom: 0;
 
             .infos{
                 margin: 24px;

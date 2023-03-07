@@ -22,7 +22,7 @@
 </section>
     
 <?php
-$title = "movie detail";
+$title = "list movies";
 $secondTitle = "Featured Movies";
 $content = ob_get_clean();
 require "view/template.php";

@@ -33,7 +33,7 @@
     <div id="wrapper">
         <main>
             <div id="contenu">
-                <h2><?= $secondTitle ?></h2>
+                <h1><?= $secondTitle ?></h1>
                 <?=$content?>
                 
             </div>

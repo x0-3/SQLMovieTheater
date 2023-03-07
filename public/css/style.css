@@ -74,6 +74,22 @@
 * body #wrapper main #contenu .movieDesc .descrition h1 {
   margin-bottom: 50px;
 }
+* body #wrapper main #contenu #listActors {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px;
+  height: 80vh;
+}
+* body #wrapper main #contenu #listActors .actorInfo {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+* body #wrapper main #contenu #listActors a {
+  color: black;
+}
 * body footer {
   display: flex;
   width: 100%;
