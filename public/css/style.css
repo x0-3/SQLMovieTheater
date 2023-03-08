@@ -135,6 +135,19 @@
 * body #wrapper main #contenu #producerDetailSection figure img {
   width: 100%;
 }
+* body #wrapper main #contenu #actorDetailSection {
+  display: flex;
+  justify-content: space-around;
+  height: 70vh;
+  align-items: center;
+  padding: 13px;
+}
+* body #wrapper main #contenu #actorDetailSection figure {
+  width: 25%;
+}
+* body #wrapper main #contenu #actorDetailSection figure img {
+  width: 100%;
+}
 * body footer {
   display: flex;
   width: 100%;

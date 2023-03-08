@@ -33,8 +33,7 @@ class MovieTheaterController{
     // list of all the roles in db
     public function listRoles(){
         $pdo = Connect::Connection();
-        $stmt = $pdo->query("
-        SELECT familyName, NAME,roleName,title, DATE_FORMAT(releaseDateFrance,'%d/%m/%Y') AS releaseDate
+        $stmt = $pdo->query("SELECT a.idActor,familyName, NAME,roleName,title, DATE_FORMAT(releaseDateFrance,'%d/%m/%Y') AS releaseDate
         FROM moviecast mc
         INNER JOIN actor a
         ON mc.idActor= a.idActor
@@ -78,6 +77,31 @@ class MovieTheaterController{
         $pdo = Connect::Connection();
         $stmt = $pdo->prepare("SELECT mg.idGenre,m.idProducer,poster,title, DATE_FORMAT(releaseDateFrance,'%d/%m/%Y') AS releaseDate, TIME_FORMAT(SEC_TO_TIME(runningTime),'%H:%i') AS RunningTime, familyName,NAME, genreName FROM movie m INNER JOIN producer pr ON m.idProducer = pr.idProducer INNER JOIN person p ON pr.idPerson=p.idPerson INNER JOIN moviegenre mg ON mg.idMovie = m.idMovie INNER JOIN genre g ON g.idGenre = mg.idGenre WHERE m.idMovie = :id");
         $stmt->execute(["id"=>$id]);
+        
+        $stmt2 =$pdo->prepare("SELECT a.idActor,title, familyName, NAME, gender, roleName
+        FROM moviecast mc
+        INNER JOIN actor a
+        ON mc.idActor=a.idActor
+        INNER JOIN person p
+        ON a.idPerson=p.idPerson
+        INNER JOIN movie m
+        ON mc.idMovie=m.idMovie
+        INNER JOIN ROLE r
+        ON mc.idRole=r.idRole
+        WHERE m.idMovie = :id 
+        ");
+        $stmt2->execute(["id"=>$id]);
+        
+        $stmt3 =$pdo->prepare("SELECT g.idGenre, genreName
+        FROM moviegenre mg
+        INNER JOIN movie m
+        ON mg.idMovie = m.idMovie
+        INNER JOIN genre g
+        ON mg.idGenre=g.idGenre
+        WHERE m.idMovie= :id"
+        );
+        $stmt3->execute(["id"=>$id]);
+
         require "view/movieDetail.php";
     }
 
@@ -94,6 +118,16 @@ class MovieTheaterController{
         $pdo = Connect::Connection();
         $stmt = $pdo->prepare("SELECT mg.idGenre,genreName,title,DATE_FORMAT(releaseDateFrance,'%d/%m/%Y'),synopsis FROM moviegenre mg INNER JOIN genre g ON mg.idGenre=g.idGenre INNER JOIN movie m ON m.idMovie=mg.idMovie WHERE mg.idGenre= :id");
         $stmt->execute(["id"=>$id]);
+
+        $stmt2= $pdo->prepare("SELECT g.idGenre,title,genreName ,poster,DATE_FORMAT(releaseDateFrance,'%d/%m/%Y') AS releaseDate, TIME_FORMAT(SEC_TO_TIME(runningTime),'%H:%i') AS RunningTime
+        FROM moviegenre mg
+        INNER JOIN movie m
+        ON mg.idMovie=m.idMovie
+        INNER JOIN genre g
+        ON mg.idGenre=g.idGenre
+        WHERE g.idGenre= :id
+        ");
+        $stmt2->execute(["id"=>$id]);
         require "view/GenreDetail.php";
     }
 
