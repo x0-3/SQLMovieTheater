@@ -7,7 +7,7 @@
 foreach ($stmt->fetchAll() as $producer){ ?>
 
     <div class="producerList">
-        <a href="#"> <h3><?= $producer['familyName'] ?> <?= $producer['name'] ?></h3> </a>
+        <a href="index.php?action=producerDetail&id=<?=$producer['idProducer']?>"> <h3><?= $producer['familyName'] ?> <?= $producer['name'] ?></h3> </a>
         <p>Movie : <?= $producer['title'] ?></p>
         <p>date : <?= $producer['releaseDate'] ?></p>
 

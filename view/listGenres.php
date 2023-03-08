@@ -5,7 +5,7 @@
 <?php
 foreach($stmt->fetchAll() as $genre){?>
 
-    <a href="#"><h3><?=$genre['genreName']?></h3></a>
+    <a href="index.php?action=genreDetail&id=<?=$genre['idGenre']?>"><h3><?=$genre['genreName']?></h3></a>
 
 
 <?php }?>

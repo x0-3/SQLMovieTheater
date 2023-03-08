@@ -14,18 +14,11 @@
         <h1><?=$movie['title']?></h1>
         <p>release date : <?=$movie['releaseDate']?></p>
         <p>Running time : <?=$movie['RunningTime']?></p>
-        <p>Producer : <?=$movie['familyName']?> <?=$movie['NAME']?></p>
-        <p>Genre : <?=$movie['genreName']?></p>
+        <p>Producer : <a href="index.php?action=producerDetail&id=<?=$movie['idProducer']?>"><?=$movie['familyName']?> <?=$movie['NAME']?></a></p>
+        <p>Genre : <a href="index.php?action=genreDetail&id=<?=$movie['idGenre']?>"><?=$movie['genreName']?></a></p>
+
 
     </div>
-
-
-        
-
-
-    
-
-
 </section>
 
 <?php
