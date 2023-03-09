@@ -65,7 +65,6 @@ class MovieTheaterController{
         SELECT *
         FROM genre
         ");
-
         require "view\listGenres.php";
     }
 

@@ -81,7 +81,7 @@
                     .movieDesc {
                         display: flex;
                         justify-content: space-around;
-                        height: 78vh;;
+                        height: 79vh;
                         width: 100%;
 
                         figure{
@@ -178,7 +178,7 @@
                     #actorDetailSection{
                         display: flex;
                         justify-content: space-around;
-                        height: 70vh;
+                        height: 79vh;
                         align-items: center;
                         padding: 13px;
 
@@ -194,25 +194,23 @@
                     #genreDetailSection{
                         display: flex;
                         flex-wrap: wrap;
-                        justify-content: center;
-                        height: 79vh;
-                        align-items: center;
+                        justify-content: space-evenly;
                         width: 100%;
+                        height: 71vh;
+                        margin-top: 79px;
+
 
                         a{
+                            width: 15%;
                             text-decoration: none;
                             color: black;
-                            
+
                             figure{
-                                width: 12%;
-                                justify-content: space-evenly;
-    
                                 img{
                                     width: 100%;
-                                }  
+                                }
                             }
                         }
-
                     }
                 }
             }

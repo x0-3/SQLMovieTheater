@@ -2,14 +2,16 @@
 
 
 <section class="genreSection">
-<?php
-foreach($stmt->fetchAll() as $genre){?>
 
-    <a href="index.php?action=genreDetail&id=<?=$genre['idGenre']?>"><h3><?=$genre['genreName']?></h3></a>
+    <?php
+    foreach($stmt->fetchAll() as $genre){?>
 
+        <a href="index.php?action=genreDetail&id=<?=$genre['idGenre']?>"><h3><?=$genre['genreName']?></h3></a>
 
-<?php }?>
+    <?php }?>
+    
 </section>
+
 
 <?php
 $title = "list genres";
