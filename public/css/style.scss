@@ -190,6 +190,30 @@
                             }
                         }
                     }
+
+                    #genreDetailSection{
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        height: 79vh;
+                        align-items: center;
+                        width: 100%;
+
+                        a{
+                            text-decoration: none;
+                            color: black;
+                            
+                            figure{
+                                width: 12%;
+                                justify-content: space-evenly;
+    
+                                img{
+                                    width: 100%;
+                                }  
+                            }
+                        }
+
+                    }
                 }
             }
         }

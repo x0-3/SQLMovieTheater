@@ -148,6 +148,25 @@
 * body #wrapper main #contenu #actorDetailSection figure img {
   width: 100%;
 }
+* body #wrapper main #contenu #genreDetailSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 79vh;
+  align-items: center;
+  width: 100%;
+}
+* body #wrapper main #contenu #genreDetailSection a {
+  text-decoration: none;
+  color: black;
+}
+* body #wrapper main #contenu #genreDetailSection a figure {
+  width: 12%;
+  justify-content: space-evenly;
+}
+* body #wrapper main #contenu #genreDetailSection a figure img {
+  width: 100%;
+}
 * body footer {
   display: flex;
   width: 100%;
