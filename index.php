@@ -10,11 +10,7 @@ spl_autoload_register(function($class_name){
 $ctrlMovieTheater = new MovieTheaterController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
-// $familyName = (isset($_GET["familyName"])) ? $_GET["familyName"] : null;
-// $name = (isset($_GET["name"])) ? $_GET["name"] : null;
-// $gender = (isset($_GET["gender"])) ? $_GET["gender"] : null;
-// $birthday = (isset($_GET["birthday"])) ? $_GET["birthday"] : null;
-// $photo = (isset($_GET["photo"])) ? $_GET["photo"] : null;
+
 
 if(isset($_GET['action'])){
     switch($_GET['action']){
@@ -28,7 +24,31 @@ if(isset($_GET['action'])){
         case "producerDetail": $ctrlMovieTheater->producerDetail($id);break; // page for one producer
         case "genreDetail": $ctrlMovieTheater->genreDetail($id);break; // page for one genre
         case "actorDetail": $ctrlMovieTheater->actorDetail($id);break; // page for one actor
-        case "addActor": $ctrlMovieTheater->addActor();break; // add an actor to db
+        case "addActorPage": $ctrlMovieTheater->addActorPage();break; // form for actor
+
+
+        // add an actor to db
+        case "addActor":
+            
+            // if button submit pressed then 
+            if(isset($_POST['submit'])){
+                $familyName = $_POST['familyName'];
+                $name = $_POST['name'];
+                $gender = $_POST['gender'];
+                $birthday = $_POST['birthday'];
+                $photo = $_POST['photo'];
+                
+                $familyName = filter_input(INPUT_POST, "familyName", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $gender = filter_input(INPUT_POST, "gender", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $photo = filter_input(INPUT_POST, "photo", FILTER_VALIDATE_URL);
+                
+                $ctrlMovieTheater->addActor($familyName,$name,$gender,$birthday,$photo);  
+            }
+
+            // redirect to the list actor page
+            header("location:index.php?action=listActors");
+        break; 
     }
 } else{
     $ctrlMovieTheater->listFilms();

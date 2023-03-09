@@ -17,6 +17,7 @@ class MovieTheaterController{
         require "view/movie/listFilms.php";
     }
 
+
     // list of all the actors in db
     public function listActors(){
         $pdo = Connect::Connection();
@@ -27,6 +28,7 @@ class MovieTheaterController{
         ");
         require "view/actor/listActors.php";
     }
+
 
     // list of all the roles in db
     public function listRoles(){
@@ -45,6 +47,7 @@ class MovieTheaterController{
         require "view/role/listRoles.php";
     }
 
+
     // list of all the producers in db
     public function listProducers(){
         $pdo = Connect ::Connection();
@@ -58,6 +61,7 @@ class MovieTheaterController{
         require "view/producer/listProducers.php";
     }
 
+
     // list of all the genres in db
     public function listGenres(){
         $pdo = Connect::Connection();
@@ -67,6 +71,7 @@ class MovieTheaterController{
         ");
         require "view/genre/listGenres.php";
     }
+
 
     // detail of one movie by it's ID
     public function movieDetail($id){
@@ -85,6 +90,7 @@ class MovieTheaterController{
         ");
         $stmt->execute(["id"=>$id]);
         
+
         $stmt2 =$pdo->prepare("SELECT a.idActor,title, familyName, NAME, gender, roleName
         FROM moviecast mc
         INNER JOIN actor a
@@ -99,6 +105,7 @@ class MovieTheaterController{
         ");
         $stmt2->execute(["id"=>$id]);
         
+
         $stmt3 =$pdo->prepare("SELECT g.idGenre, genreName
         FROM moviegenre mg
         INNER JOIN movie m
@@ -111,6 +118,7 @@ class MovieTheaterController{
 
         require "view/movie/movieDetail.php";
     }
+
 
     // detail of one producer by it's ID
     public function producerDetail($id){
@@ -127,6 +135,7 @@ class MovieTheaterController{
         require "view/producer/producerDetail.php";
     }
 
+
     // detail of one genre by it's ID
     public function genreDetail($id){
         $pdo = Connect::Connection();
@@ -140,6 +149,7 @@ class MovieTheaterController{
         ");
         $stmt->execute(["id"=>$id]);
 
+
         $stmt2= $pdo->prepare("SELECT m.idMovie,g.idGenre,title,genreName ,poster,DATE_FORMAT(releaseDateFrance,'%d/%m/%Y') AS releaseDate, TIME_FORMAT(SEC_TO_TIME(runningTime),'%H:%i') AS RunningTime
         FROM moviegenre mg
         INNER JOIN movie m
@@ -151,6 +161,7 @@ class MovieTheaterController{
         $stmt2->execute(["id"=>$id]);
         require "view/genre/GenreDetail.php";
     }
+
 
     // detail of one actor by it's ID
     public function actorDetail($id){
@@ -166,11 +177,32 @@ class MovieTheaterController{
     }
 
 
-    public function addActor(){
-        $pdo = Connect::Connection();
-
-
+    // to get form page for actor
+    public function addActorPage(){
+        $pdo =Connect::Connection();
         require "view/actor/addActor.php";
+    }
+
+    // insert a new actor in db
+    public function addActor($familyName,$name,$gender,$birthday,$photo){
+        $pdo = Connect::Connection();
+        $stmt = $pdo->prepare("INSERT INTO person (familyName,NAME,gender,birthday,photo) 
+        VALUES(:familyName,:NAME,:gender,:birthday,:photo)
+        ");
+        $stmt->execute([
+            "familyName"=>$familyName,
+            "NAME"=>$name,
+            "gender"=>$gender,
+            "birthday"=>$birthday,
+            "photo"=>$photo,
+        ]);
+
+
+        $stmt2 = $pdo->query("INSERT INTO actor (idPerson)
+        VALUES (LAST_INSERT_ID())
+        ");
+
+        require "view/actor/addActor.php";  
     }
 }
 

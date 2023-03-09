@@ -7,6 +7,7 @@
     <a href="index.php?action=movieDetail&id=<?=$movie['idMovie']?>">
         <figure>
             <img src="<?=$movie['poster']?>" alt="movie Poster">
+
                 
             <figcaption>
                 
