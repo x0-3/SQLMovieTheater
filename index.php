@@ -10,6 +10,11 @@ spl_autoload_register(function($class_name){
 $ctrlMovieTheater = new MovieTheaterController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
+// $familyName = (isset($_GET["familyName"])) ? $_GET["familyName"] : null;
+// $name = (isset($_GET["name"])) ? $_GET["name"] : null;
+// $gender = (isset($_GET["gender"])) ? $_GET["gender"] : null;
+// $birthday = (isset($_GET["birthday"])) ? $_GET["birthday"] : null;
+// $photo = (isset($_GET["photo"])) ? $_GET["photo"] : null;
 
 if(isset($_GET['action'])){
     switch($_GET['action']){
@@ -23,6 +28,7 @@ if(isset($_GET['action'])){
         case "producerDetail": $ctrlMovieTheater->producerDetail($id);break; // page for one producer
         case "genreDetail": $ctrlMovieTheater->genreDetail($id);break; // page for one genre
         case "actorDetail": $ctrlMovieTheater->actorDetail($id);break; // page for one actor
+        case "addActor": $ctrlMovieTheater->addActor();break; // add an actor to db
     }
 } else{
     $ctrlMovieTheater->listFilms();

@@ -164,6 +164,14 @@ class MovieTheaterController{
         $stmt->execute(["id"=>$id]);
         require "view/actor/actorDetail.php";
     }
+
+
+    public function addActor(){
+        $pdo = Connect::Connection();
+
+
+        require "view/actor/addActor.php";
+    }
 }
 
 

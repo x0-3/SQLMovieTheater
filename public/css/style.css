@@ -30,7 +30,7 @@
   font-size: 16px;
   border: none;
 }
-* body header nav ul #dropdown button #dropdownContent {
+* body header nav ul #dropdown #dropdownContent {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -38,13 +38,13 @@
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
-* body header nav ul #dropdown button #dropdownContent a {
+* body header nav ul #dropdown #dropdownContent a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
-* body header nav ul #dropdown button #dropdownContent:hover {
+* body header nav ul #dropdown:hover #dropdownContent {
   display: flex;
   position: absolute;
   background-color: white;

@@ -28,7 +28,7 @@
 
                     <div id="dropdownContent">
                         <a href="#">ADD MOVIES</a>
-                        <a href="#">ADD ACTORS</a>
+                        <a href="index.php?action=addActor">ADD ACTORS</a>
                         <a href="#">ADD ROLES</a>
                         <a href="#">ADD PRODUCERS</a>
                         <a href="#">ADD GENRES</a>
