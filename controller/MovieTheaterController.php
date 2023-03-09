@@ -177,12 +177,6 @@ class MovieTheaterController{
     }
 
 
-    // to get form page for actor
-    public function addActorPage(){
-        $pdo =Connect::Connection();
-        require "view/actor/addActor.php";
-    }
-
     // insert a new actor in db
     public function addActor($familyName,$name,$gender,$birthday,$photo){
         $pdo = Connect::Connection();

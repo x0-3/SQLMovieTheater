@@ -24,7 +24,7 @@ if(isset($_GET['action'])){
         case "producerDetail": $ctrlMovieTheater->producerDetail($id);break; // page for one producer
         case "genreDetail": $ctrlMovieTheater->genreDetail($id);break; // page for one genre
         case "actorDetail": $ctrlMovieTheater->actorDetail($id);break; // page for one actor
-        case "addActorPage": $ctrlMovieTheater->addActorPage();break; // form for actor
+        case "addActorPage": require "view/actor/addActor.php";break; // form for actor
 
 
         // add an actor to db
@@ -41,7 +41,7 @@ if(isset($_GET['action'])){
                 $familyName = filter_input(INPUT_POST, "familyName", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $gender = filter_input(INPUT_POST, "gender", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                $photo = filter_input(INPUT_POST, "photo", FILTER_VALIDATE_URL);
+                $photo = filter_input(INPUT_POST, "photo", FILTER_SANITIZE_URL);
                 
                 $ctrlMovieTheater->addActor($familyName,$name,$gender,$birthday,$photo);  
             }
