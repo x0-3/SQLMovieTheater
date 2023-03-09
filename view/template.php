@@ -22,13 +22,26 @@
                 <li><a href="index.php?action=listRoles">ROLES</a></li>
                 <li><a href="index.php?action=listProducers">PRODUCERS</a></li>
                 <li><a href="index.php?action=listGenres">GENRES</a></li>
-                <li><a href="#">ADD</a></li>
+                
+                <div id="dropdown">
+                    <button>ADD</button>
+
+                    <div id="dropdownContent">
+                        <a href="#">ADD MOVIES</a>
+                        <a href="#">ADD ACTORS</a>
+                        <a href="#">ADD ROLES</a>
+                        <a href="#">ADD PRODUCERS</a>
+                        <a href="#">ADD GENRES</a>
+                    </div>
+                </div>
+
             </ul>
         </nav>
 
         <a href="#">SEARCH</a> 
     </header>
     
+
     <div id="wrapper">
         <main>
             <div id="contenu">
@@ -37,7 +50,6 @@
                 
             </div>
         </main>
-        
     </div>
     
 

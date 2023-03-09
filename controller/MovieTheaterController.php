@@ -152,7 +152,7 @@ class MovieTheaterController{
         require "view/GenreDetail.php";
     }
 
-    // detail of one genre by it's ID
+    // detail of one actor by it's ID
     public function actorDetail($id){
         $pdo = Connect::Connection();
         $stmt = $pdo->prepare("SELECT idActor,familyName,NAME,gender,DATE_FORMAT(birthday,'%d/%m/%Y') AS birthday,DATE_FORMAT(FROM_DAYS(DATEDIFF(NOW(),birthday)),'%Y')+0 AS age,photo 
