@@ -14,7 +14,7 @@ class MovieTheaterController{
             FROM movie
         ");
 
-        require "view/listFilms.php";
+        require "view/movie/listFilms.php";
     }
 
     // list of all the actors in db
@@ -25,7 +25,7 @@ class MovieTheaterController{
         INNER JOIN person p
         ON a.idPerson=p.idPerson
         ");
-        require "view/listActors.php";
+        require "view/actor/listActors.php";
     }
 
     // list of all the roles in db
@@ -42,7 +42,7 @@ class MovieTheaterController{
         INNER JOIN movie m
         ON mc.idMovie=m.idMovie
         ");
-        require "view/listRoles.php";
+        require "view/role/listRoles.php";
     }
 
     // list of all the producers in db
@@ -55,7 +55,7 @@ class MovieTheaterController{
         INNER JOIN person p
         ON p.idPerson=pr.idPerson
         ");
-        require "view\listProducers.php";
+        require "view/producer/listProducers.php";
     }
 
     // list of all the genres in db
@@ -65,7 +65,7 @@ class MovieTheaterController{
         SELECT *
         FROM genre
         ");
-        require "view\listGenres.php";
+        require "view/genre/listGenres.php";
     }
 
     // detail of one movie by it's ID
@@ -109,7 +109,7 @@ class MovieTheaterController{
         );
         $stmt3->execute(["id"=>$id]);
 
-        require "view/movieDetail.php";
+        require "view/movie/movieDetail.php";
     }
 
     // detail of one producer by it's ID
@@ -124,7 +124,7 @@ class MovieTheaterController{
         WHERE pr.idProducer= :id
         ");
         $stmt->execute(["id"=>$id]);
-        require "view/producerDetail.php";
+        require "view/producer/producerDetail.php";
     }
 
     // detail of one genre by it's ID
@@ -149,7 +149,7 @@ class MovieTheaterController{
         WHERE g.idGenre= :id
         ");
         $stmt2->execute(["id"=>$id]);
-        require "view/GenreDetail.php";
+        require "view/genre/GenreDetail.php";
     }
 
     // detail of one actor by it's ID
@@ -162,7 +162,7 @@ class MovieTheaterController{
         WHERE idActor= :id
         ");
         $stmt->execute(["id"=>$id]);
-        require "view/actorDetail.php";
+        require "view/actor/actorDetail.php";
     }
 }
 
