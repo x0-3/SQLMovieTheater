@@ -2,10 +2,7 @@
 
 
 
-<!-- <figure>
-    <img src="public/img/bgImg_form.jpg" alt="">
-</figure> -->
-
+    
 <form action="index.php?action=addActor" method="post">
 
     <p>
@@ -38,9 +35,6 @@
         <input type="submit" id="submitButton" name="submit" value="Add actor">
     </p>
 </form>
-
-
-
 
 <?php 
 $title = "add actor";

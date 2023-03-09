@@ -248,6 +248,41 @@
                             }
                         }
                     }
+                    
+
+                    form{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        width: 25%;
+                        background-color: beige;
+                        align-items: center;
+                        margin: 17vh auto;
+                        padding: 97px;
+                        border-radius: 30px;
+
+                        p{
+                            display: flex;
+                            justify-content: center;
+                            flex-direction: column;
+                            align-items: center;    
+                            margin-bottom: 10px;
+
+                            input{
+                                padding: 5px;
+                            }
+                            #submitButton{
+                                background-color: black;
+                                color: white;
+                                border: none;
+                                padding: 10px;
+                                border-radius: 5px;
+                                cursor: pointer;
+                            }
+
+                        }
+                    }
+                    
                 }
             }
         }

@@ -194,6 +194,35 @@
 * body #wrapper main #contenu #genreDetailSection a figure img {
   width: 100%;
 }
+* body #wrapper main #contenu form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25%;
+  background-color: beige;
+  align-items: center;
+  margin: 17vh auto;
+  padding: 97px;
+  border-radius: 30px;
+}
+* body #wrapper main #contenu form p {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+* body #wrapper main #contenu form p input {
+  padding: 5px;
+}
+* body #wrapper main #contenu form p #submitButton {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 * body footer {
   display: flex;
   width: 100%;
