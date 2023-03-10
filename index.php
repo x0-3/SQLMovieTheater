@@ -87,7 +87,33 @@ if(isset($_GET['action'])){
 
                 $ctrlMovieTheater->addGenre($genreName);
             }
-        header("location:index.php?action=listGenres");
+            header("location:index.php?action=listGenres");
+        break;
+
+
+        // FIXME:
+        // movie form page and get the producer in options
+        case "MovieFormPage": 
+            $ctrlMovieTheater->MovieForm();
+        break; 
+        // FIXME:
+        // add movie to db
+        case "addMovie":
+            if(isset($post['submit'])){
+                $title = $_POST['title'];
+                $releaseDateFrance = $_POST['releaseDateFrance'];
+                $runningTime = $_POST['runningTime'];
+                $synopsis = $_POST['synopsis'];
+                $poster = $_POST['poster'];
+                $producer = $_POST['producer'];
+                 
+                $ctrlMovieTheater->addMovie($title,$releaseDateFrance,$runningTime,$synopsis,$poster,$producer);
+            }
+            
+        break;
+
+  
+            
     }
 } else{
     $ctrlMovieTheater->listFilms();

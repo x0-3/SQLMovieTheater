@@ -27,7 +27,7 @@
                     <button>ADD</button>
 
                     <div id="dropdownContent">
-                        <a href="#">ADD MOVIES</a>
+                        <a href="index.php?action=MovieFormPage">ADD MOVIES</a>
                         <a href="index.php?action=addActorPage">ADD ACTORS</a>
                         <a href="#">ADD ROLES</a>
                         <a href="index.php?action=addProducerPage">ADD PRODUCERS</a>

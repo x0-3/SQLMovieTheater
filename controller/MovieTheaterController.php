@@ -231,6 +231,35 @@ class MovieTheaterController{
 
         require "view/genre/addGenre.php";
     }
+
+    // FIXME:
+    public function addMovie($title,$releaseDateFrance,$runningTime,$synopsis,$poster,$producer){
+        $pdo = Connect::Connection();
+        $stmt = $pdo->prepare("INSERT INTO movie (title,releaseDateFrance,runningTime,synopsis,poster,idProducer)
+        VALUES (:title,:releaseDateFrance,:runningTime,:synopsis,:poster,:idProducer)
+        ");
+        $stmt->execute([
+            "title"=>$title,
+            "releaseDateFrance"=>$releaseDateFrance,
+            "runningTime"=>$runningTime,
+            "synopsis"=>$synopsis,
+            "poster"=>$poster,
+            "idProducer"=>$producer,
+        ]);
+
+        require "view/movie/addMovie.php";
+    }
+    // FIXME:
+    public function MovieForm(){
+        $pdo = Connect::Connection();
+        $stmt = $pdo->query("SELECT p.idPerson, familyName,name
+        FROM person p
+        INNER JOIN producer pr
+        ON p.idPerson = pr.idPerson
+        ");
+
+        require "view/movie/addMovie.php";
+    }
 }
 
 
