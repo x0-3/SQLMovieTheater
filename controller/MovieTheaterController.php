@@ -218,6 +218,19 @@ class MovieTheaterController{
         ");
         require "view/producer/addProducer.php";
     }
+
+
+    public function addGenre($genreName){
+        $pdo = Connect::Connection();
+        $stmt =$pdo->prepare("INSERT INTO genre (genreName)
+        VALUES (:genreName)
+        ");
+        $stmt->execute([
+            "genreName"=>$genreName,
+        ]);
+
+        require "view/genre/addGenre.php";
+    }
 }
 
 

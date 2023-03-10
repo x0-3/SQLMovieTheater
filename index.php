@@ -57,7 +57,7 @@ if(isset($_GET['action'])){
         // add a Producer to db
         case "addProducer":
             if(isset($_POST['submit'])){
-                
+
                 $familyName = $_POST['familyName'];
                 $name = $_POST['name'];
                 $gender = $_POST['gender'];
@@ -73,6 +73,21 @@ if(isset($_GET['action'])){
             }
             header("location:index.php?action=listProducers");
         break;
+
+
+        // form for genres 
+        case "genreFormPage": require "view/genre/addGenre.php"; break;
+
+        // add genres in db
+        case "addGenre":
+            if(isset($_POST['submit'])){
+                $genreName = $_POST['genreName'];
+
+                $genreName = filter_input(INPUT_POST,"genreName",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                $ctrlMovieTheater->addGenre($genreName);
+            }
+        header("location:index.php?action=listGenres");
     }
 } else{
     $ctrlMovieTheater->listFilms();
