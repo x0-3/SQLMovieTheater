@@ -107,10 +107,6 @@ if(isset($_GET['action'])){
         break;
 
 
-
-
-
-
         // FIXME:
         // movie form page and get the producer in options
         case "MovieFormPage": 
