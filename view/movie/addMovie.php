@@ -1,47 +1,34 @@
 <?php ob_start();?>
 
-<!-- FIXME: -->
 <form action="index.php?action=addMovie" method="post">
 
     <p>
         <label for="title">Enter the Movie title :</label>
-        <input type="text" name="title" id="title" placeholder="Movie title">
+        <input type="text" name="title" id="title" placeholder="Movie title" required>
     
     </p>
 
     <p>
         <label for="releaseDate">Enter the Release date :</label>
-        <input type="date" name="releaseDate" id="releaseDate" placeholder="Release date">
+        <input type="date" name="releaseDate" id="releaseDate" required>
     </p>
 
     <p>
         <label for="runningTime">Enter the running time :</label>
-        <input type="time" name="runningTime" id="runningTime" placeholder="Running time">
+        <input type="text" id="runningTime" name="runningTime" value="00:00" required>
     </p>
-    
+
+    <!-- FIXME: input format not correct -->
     <p>
         <label for="synopsis">Enter the synopsis :</label>
-        <input type="number" name="synopsis" id="synopsis" step=".1">
+        <input type="number" name="synopsis" id="synopsis" step="0.1" required>
     </p>
 
     <p>
         <label for="poster">Enter the poster :</label>
-        <input type="url" name="poster" id="poster" placeholder="https://exemple.com">
+        <input type="url" name="poster" id="poster" required>
     </p>
-
-    <p>
-        <label for="producer">choose the producer :</label>
-
-        <select name="producer" id="producer">
-        <option value="">--Please choose an option--</option>
-
-            <?php foreach($stmt->fetchAll() as $producer){ ?>
-                <option value="<?=$producer['familyName']?>"><?=$producer['familyName']?></option>
-            <?php }?>
-
-        </select>
-
-    </p>
+    
     
     <p>
         <input type="submit" id="submitButton" name="submit" value="Add movie">

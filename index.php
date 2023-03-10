@@ -109,26 +109,27 @@ if(isset($_GET['action'])){
 
         // FIXME:
         // movie form page and get the producer in options
-        case "MovieFormPage": 
-            $ctrlMovieTheater->MovieForm();
-        break; 
+        case "MovieFormPage": require "view/movie/addMovie.php";break; 
+        
         // FIXME:
         // add movie to db
         case "addMovie":
-            if(isset($post['submit'])){
+            if(isset($_POST['submit'])){
                 $title = $_POST['title'];
-                $releaseDateFrance = $_POST['releaseDateFrance'];
+                $releaseDate = $_POST['releaseDate'];
                 $runningTime = $_POST['runningTime'];
                 $synopsis = $_POST['synopsis'];
                 $poster = $_POST['poster'];
-                $producer = $_POST['producer'];
+
+                $title = filter_input(INPUT_POST,"title",FILTER_SANITIZE_SPECIAL_CHARS);
+                $synopsis = filter_input(INPUT_POST,"synopsis",FILTER_SANITIZE_NUMBER_FLOAT);
+                $poster = filter_input(INPUT_POST,"poster",FILTER_SANITIZE_URL);
                  
-                $ctrlMovieTheater->addMovie($title,$releaseDateFrance,$runningTime,$synopsis,$poster,$producer);
+                // $ctrlMovieTheater->addMovie($title,$releaseDate);
+                $ctrlMovieTheater->addMovie($title,$releaseDate,$runningTime,$synopsis,$poster);
             }
-            
         break;
 
-  
             
     }
 } else{

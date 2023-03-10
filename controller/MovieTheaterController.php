@@ -235,46 +235,40 @@ class MovieTheaterController{
 
 
     public function addRole($roleName){
-    $pdo = Connect::Connection();
-    $stmt = $pdo->prepare("INSERT INTO role (roleName)
-    VALUES (:roleName)
-    ");
-    $stmt->execute([
-        "roleName"=>$roleName,
-    ]);
+        $pdo = Connect::Connection();
+        $stmt = $pdo->prepare("INSERT INTO role (roleName)
+        VALUES (:roleName)
+        ");
+        $stmt->execute([
+            "roleName"=>$roleName,
+        ]);
 
-    require "view/role/addRole.php";
+        require "view/role/addRole.php";
     }
 
 
-    // FIXME:
-    public function addMovie($title,$releaseDateFrance,$runningTime,$synopsis,$poster,$producer){
+    // FIXME: in order to show it needs a producer and a genre  
+    public function addMovie($title,$releaseDate,$runningTime,$synopsis,$poster){
         $pdo = Connect::Connection();
-        $stmt = $pdo->prepare("INSERT INTO movie (title,releaseDateFrance,runningTime,synopsis,poster,idProducer)
-        VALUES (:title,:releaseDateFrance,:runningTime,:synopsis,:poster,:idProducer)
+        $stmt = $pdo->prepare("INSERT INTO movie (title, releaseDateFrance,runningTime, synopsis, poster)
+        VALUES (:title, :releaseDateFrance, :runningTime, :synopsis, :poster)
+               
         ");
+
         $stmt->execute([
             "title"=>$title,
-            "releaseDateFrance"=>$releaseDateFrance,
+            "releaseDateFrance"=>$releaseDate,
             "runningTime"=>$runningTime,
             "synopsis"=>$synopsis,
             "poster"=>$poster,
-            "idProducer"=>$producer,
         ]);
 
         require "view/movie/addMovie.php";
     }
-    // FIXME:
-    public function MovieForm(){
-        $pdo = Connect::Connection();
-        $stmt = $pdo->query("SELECT p.idPerson, familyName,name
-        FROM person p
-        INNER JOIN producer pr
-        ON p.idPerson = pr.idPerson
-        ");
 
-        require "view/movie/addMovie.php";
-    }
+
+
+
 }
 
 
