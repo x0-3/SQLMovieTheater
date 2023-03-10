@@ -29,7 +29,7 @@
                     <div id="dropdownContent">
                         <a href="index.php?action=MovieFormPage">ADD MOVIES</a>
                         <a href="index.php?action=addActorPage">ADD ACTORS</a>
-                        <a href="#">ADD ROLES</a>
+                        <a href="index.php?action=roleFormPage">ADD ROLES</a>
                         <a href="index.php?action=addProducerPage">ADD PRODUCERS</a>
                         <a href="index.php?action=genreFormPage">ADD GENRES</a>
                     </div>

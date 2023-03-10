@@ -91,6 +91,26 @@ if(isset($_GET['action'])){
         break;
 
 
+        // role form
+        case "roleFormPage" : require "view/role/addRole.php"; break;
+        
+        // add role to db
+        case "addRole" : 
+            if(isset($_POST['submit'])){
+                $roleName = $_POST['roleName'];
+
+                $roleName = filter_input(INPUT_POST,"roleName",FILTER_SANITIZE_SPECIAL_CHARS);
+
+                $ctrlMovieTheater->addRole($roleName);
+            }
+        
+        break;
+
+
+
+
+
+
         // FIXME:
         // movie form page and get the producer in options
         case "MovieFormPage": 

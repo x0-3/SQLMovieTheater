@@ -232,6 +232,21 @@ class MovieTheaterController{
         require "view/genre/addGenre.php";
     }
 
+
+
+    public function addRole($roleName){
+    $pdo = Connect::Connection();
+    $stmt = $pdo->prepare("INSERT INTO role (roleName)
+    VALUES (:roleName)
+    ");
+    $stmt->execute([
+        "roleName"=>$roleName,
+    ]);
+
+    require "view/role/addRole.php";
+    }
+
+
     // FIXME:
     public function addMovie($title,$releaseDateFrance,$runningTime,$synopsis,$poster,$producer){
         $pdo = Connect::Connection();
