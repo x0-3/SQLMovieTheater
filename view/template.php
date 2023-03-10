@@ -30,7 +30,7 @@
                         <a href="#">ADD MOVIES</a>
                         <a href="index.php?action=addActorPage">ADD ACTORS</a>
                         <a href="#">ADD ROLES</a>
-                        <a href="#">ADD PRODUCERS</a>
+                        <a href="index.php?action=addProducerPage">ADD PRODUCERS</a>
                         <a href="#">ADD GENRES</a>
                     </div>
                 </div>

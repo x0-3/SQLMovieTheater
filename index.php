@@ -24,8 +24,8 @@ if(isset($_GET['action'])){
         case "producerDetail": $ctrlMovieTheater->producerDetail($id);break; // page for one producer
         case "genreDetail": $ctrlMovieTheater->genreDetail($id);break; // page for one genre
         case "actorDetail": $ctrlMovieTheater->actorDetail($id);break; // page for one actor
-        case "addActorPage": require "view/actor/addActor.php";break; // form for actor
 
+        case "addActorPage": require "view/actor/addActor.php";break; // form for actor
 
         // add an actor to db
         case "addActor":
@@ -49,6 +49,30 @@ if(isset($_GET['action'])){
             // redirect to the list actor page
             header("location:index.php?action=listActors");
         break; 
+
+
+        // form for Producer
+        case "addProducerPage": require "view/producer/addProducer.php"; break;
+        
+        // add a Producer to db
+        case "addProducer":
+            if(isset($_POST['submit'])){
+                
+                $familyName = $_POST['familyName'];
+                $name = $_POST['name'];
+                $gender = $_POST['gender'];
+                $birthday = $_POST['birthday'];
+                $photo = $_POST['photo'];
+                
+                $familyName = filter_input(INPUT_POST, "familyName", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $gender = filter_input(INPUT_POST, "gender", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $photo = filter_input(INPUT_POST, "photo", FILTER_SANITIZE_URL);
+
+                $ctrlMovieTheater->addProducer($familyName,$name,$gender,$birthday,$photo);
+            }
+            header("location:index.php?action=listProducers");
+        break;
     }
 } else{
     $ctrlMovieTheater->listFilms();

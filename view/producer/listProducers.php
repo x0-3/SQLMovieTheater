@@ -21,7 +21,7 @@ foreach ($stmt->fetchAll() as $producer){ ?>
 </section>
 
 <?php
-$title = "list Roles";
-$secondTitle = "Featured Roles";
+$title = "producers";
+$secondTitle = "Featured producers";
 $content = ob_get_clean();
 require "view/template.php";

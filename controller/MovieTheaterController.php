@@ -51,12 +51,12 @@ class MovieTheaterController{
     // list of all the producers in db
     public function listProducers(){
         $pdo = Connect ::Connection();
-        $stmt = $pdo->query("SELECT m.idProducer,familyName,name,title, DATE_FORMAT(releaseDateFrance,'%d/%m/%Y') AS releaseDate
-        FROM movie m
-        INNER JOIN producer pr 
-        ON m.idProducer=pr.idProducer
-        INNER JOIN person p
-        ON p.idPerson=pr.idPerson
+        $stmt = $pdo->query("SELECT pr.idProducer,familyName,name,title, DATE_FORMAT(releaseDateFrance,'%d/%m/%Y') AS releaseDate
+        FROM producer pr
+        INNER JOIN person p 
+        ON pr.idPerson = p.idPerson
+        INNER JOIN movie m
+        ON m.idProducer = pr.idProducer
         ");
         require "view/producer/listProducers.php";
     }
@@ -197,6 +197,26 @@ class MovieTheaterController{
         ");
 
         require "view/actor/addActor.php";  
+    }
+
+
+    public function addProducer($familyName,$name,$gender,$birthday,$photo){
+        $pdo = Connect::Connection();
+        $stmt = $pdo->prepare("INSERT INTO person (familyName,NAME,gender,birthday,photo) 
+        VALUES(:familyName,:NAME,:gender,:birthday,:photo)
+        ");
+        $stmt->execute([
+            "familyName"=>$familyName,
+            "NAME"=>$name,
+            "gender"=>$gender,
+            "birthday"=>$birthday,
+            "photo"=>$photo,
+        ]);
+
+        $stmt2 = $pdo->query("INSERT INTO producer(idPerson)
+        VALUES (LAST_INSERT_ID())
+        ");
+        require "view/producer/addProducer.php";
     }
 }
 

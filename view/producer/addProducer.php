@@ -1,9 +1,7 @@
 <?php ob_start(); ?>
 
 
-
-    
-<form action="index.php?action=addActor" method="post">
+<form action="index.php?action=addProducer" method="post">
 
     <p>
         <label for="FamilyName">Enter the lastname :</label>
@@ -32,12 +30,13 @@
     </p>
 
     <p>
-        <input type="submit" id="submitButton" name="submit" value="Add actor">
+        <input type="submit" id="submitButton" name="submit" value="Add producer">
     </p>
 </form>
 
-<?php 
-$title = "actor Form";
-$secondTitle = "add an actor";
+
+<?php
+$title = "Producer Form";
+$secondTitle = "Add a producer";
 $content = ob_get_clean();
 require "view/template.php";
