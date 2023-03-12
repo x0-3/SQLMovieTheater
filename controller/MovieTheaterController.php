@@ -248,10 +248,10 @@ class MovieTheaterController{
 
 
     // FIXME: in order to show it needs a producer and a genre  
-    public function addMovie($title,$releaseDate,$runningTime,$synopsis,$poster){
+    public function addMovie($title,$releaseDate,$runningTime,$synopsis,$poster, $idProducer){
         $pdo = Connect::Connection();
-        $stmt = $pdo->prepare("INSERT INTO movie (title, releaseDateFrance,runningTime, synopsis, poster)
-        VALUES (:title, :releaseDateFrance, :runningTime, :synopsis, :poster)
+        $stmt = $pdo->prepare("INSERT INTO movie (title, releaseDateFrance,runningTime, synopsis, poster, idProducer)
+        VALUES (:title, :releaseDateFrance, :runningTime, :synopsis, :poster, :idProducer)
                
         ");
 
@@ -261,12 +261,28 @@ class MovieTheaterController{
             "runningTime"=>$runningTime,
             "synopsis"=>$synopsis,
             "poster"=>$poster,
+            "idProducer"=>$idProducer,
         ]);
+
 
         require "view/movie/addMovie.php";
     }
 
+    // FIXME:
+    public function addMovieProducer(){
+        $pdo = Connect::Connection();
 
+        $stmt =$pdo->query("SELECT idProducer,familyName,name
+        FROM producer pr
+        INNER JOIN person p
+        ON pr.idPerson = p.idPerson
+        ");
+
+        // $stmt2 = $pdo->query("SELECT g.idGenre, genreName
+        // FROM genre g
+        // ");
+        require "view/movie/addMovie.php";
+    }
 
 
 }

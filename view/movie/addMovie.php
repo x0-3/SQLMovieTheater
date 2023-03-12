@@ -28,8 +28,36 @@
         <label for="poster">Enter the poster :</label>
         <input type="url" name="poster" id="poster" required>
     </p>
-    
-    
+
+
+    <!-- FIXME: -->
+    <p>
+        <legend>choose a producer :</legend>
+        
+        <?php foreach($stmt->fetchAll() as $producer){?>
+            
+            <div class="producerRadio">
+                <input type="radio" id="idProducer" name="idProducer" value="idProducer" checked required>
+                <label for="idProducer"><?=$producer['name'].$producer['familyName']?></label>
+            </div>
+        <?php }?>
+    </p>
+
+
+    <p>
+        <legend>choose the genres :</legend>
+        
+        <?php foreach($stmt2->fetchAll() as $genre){?>
+            
+            <div class="genreRadio">
+                <input type="checkbox" id="genreName" name="genreName">
+                <!-- <input type="radio" id="genreName" name="genreName" value="genreName"> -->
+                <label for="genreName"><?=$genre['genreName']?></label>
+            </div>
+        <?php }?>
+    </p>
+
+
     <p>
         <input type="submit" id="submitButton" name="submit" value="Add movie">
     </p>

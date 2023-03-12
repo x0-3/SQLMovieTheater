@@ -29,7 +29,7 @@ if(isset($_GET['action'])){
 
         // add an actor to db
         case "addActor":
-            
+
             // if button submit pressed then 
             if(isset($_POST['submit'])){
                 $familyName = $_POST['familyName'];
@@ -45,9 +45,9 @@ if(isset($_GET['action'])){
                 
                 $ctrlMovieTheater->addActor($familyName,$name,$gender,$birthday,$photo);  
             }
-
             // redirect to the list actor page
             header("location:index.php?action=listActors");
+
         break; 
 
 
@@ -56,6 +56,7 @@ if(isset($_GET['action'])){
         
         // add a Producer to db
         case "addProducer":
+
             if(isset($_POST['submit'])){
 
                 $familyName = $_POST['familyName'];
@@ -80,6 +81,8 @@ if(isset($_GET['action'])){
 
         // add genres in db
         case "addGenre":
+            require "view/genre/addGenre.php";
+
             if(isset($_POST['submit'])){
                 $genreName = $_POST['genreName'];
 
@@ -96,6 +99,7 @@ if(isset($_GET['action'])){
         
         // add role to db
         case "addRole" : 
+
             if(isset($_POST['submit'])){
                 $roleName = $_POST['roleName'];
 
@@ -109,24 +113,25 @@ if(isset($_GET['action'])){
 
         // FIXME:
         // movie form page and get the producer in options
-        case "MovieFormPage": require "view/movie/addMovie.php";break; 
+        case "MovieFormPage": $ctrlMovieTheater->addMovieProducer();break; 
         
         // FIXME:
         // add movie to db
         case "addMovie":
+
             if(isset($_POST['submit'])){
                 $title = $_POST['title'];
                 $releaseDate = $_POST['releaseDate'];
                 $runningTime = $_POST['runningTime'];
                 $synopsis = $_POST['synopsis'];
                 $poster = $_POST['poster'];
+                $idProducer = $_POST['idProducer'];
 
                 $title = filter_input(INPUT_POST,"title",FILTER_SANITIZE_SPECIAL_CHARS);
                 $synopsis = filter_input(INPUT_POST,"synopsis",FILTER_SANITIZE_NUMBER_FLOAT);
                 $poster = filter_input(INPUT_POST,"poster",FILTER_SANITIZE_URL);
                  
-                // $ctrlMovieTheater->addMovie($title,$releaseDate);
-                $ctrlMovieTheater->addMovie($title,$releaseDate,$runningTime,$synopsis,$poster);
+                $ctrlMovieTheater->addMovie($title,$releaseDate,$runningTime,$synopsis,$poster,$idProducer);
             }
         break;
 
