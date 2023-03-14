@@ -76,7 +76,7 @@ class MovieTheaterController{
     // detail of one movie by it's ID
     public function movieDetail($id){
         $pdo = Connect::Connection();
-        $stmt = $pdo->prepare("SELECT mg.idGenre,m.idProducer,poster,title, DATE_FORMAT(releaseDateFrance,'%d/%m/%Y') AS releaseDate, TIME_FORMAT(SEC_TO_TIME(runningTime),'%H:%i') AS RunningTime, familyName,NAME, genreName 
+        $stmt = $pdo->prepare("SELECT m.idMovie,mg.idGenre,m.idProducer,poster,title, DATE_FORMAT(releaseDateFrance,'%d/%m/%Y') AS releaseDate, TIME_FORMAT(SEC_TO_TIME(runningTime),'%H:%i') AS RunningTime, familyName,NAME, genreName 
         FROM movie m 
         INNER JOIN producer pr 
         ON m.idProducer = pr.idProducer 
@@ -294,6 +294,41 @@ class MovieTheaterController{
         require "view/movie/addMovie.php";
     }
 
+
+    public function addMovieCast($idMovie,$idActor, $idRole){
+        $pdo = Connect :: Connection();
+        $stmt = $pdo->prepare("INSERT INTO moviecast (idMovie,idActor, idRole)
+        VALUE (:idMovie,:idActor, :idRole)
+        ");
+
+        $stmt->execute([
+            "idMovie"=>$idMovie,
+            "idActor"=>$idActor,
+            "idRole"=>$idRole,
+        ]);
+
+    }
+
+    public function movieCastForm($id){
+        $pdo = Connect :: Connection();
+
+        $stmt = $pdo->prepare("SELECT idMovie, title
+        FROM movie m
+        ");
+
+        $stmt2 = $pdo->query("SELECT idActor, familyName, name
+        FROM actor a
+        INNER JOIN person p
+        ON a.idPerson = p.idPerson
+        ");
+
+        $stmt3 = $pdo->query("SELECT idRole, roleName
+        FROM role        
+        ");
+
+        require "view/movie/addMovieCast.php";
+
+    }
 
 }
 

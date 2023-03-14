@@ -14,7 +14,7 @@
     </p>
 
     <p>
-        <label for="runningTime"><strong>Enter the running time in min:</strong></label>
+        <label for="runningTime"><strong>Enter the running time in sec:</strong></label>
         <input type="text" id="runningTime" name="runningTime" placeholder="12345" required>
     </p>
 
@@ -37,7 +37,7 @@
         <?php foreach($stmt->fetchAll() as $producer){?>
             <div class="producerRadio">
                 <input type="radio" id="idProducer" name="idProducer" value="<?=$producer['idProducer']?>" checked required>
-                <label for="idProducer"><?=$producer['name'].$producer['familyName']?></label>
+                <label for="idProducer"><?=$producer['name']." ".$producer['familyName']?></label>
             </div>
         <?php }?>
     </p>

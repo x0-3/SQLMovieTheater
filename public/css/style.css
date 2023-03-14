@@ -104,6 +104,19 @@
 * body #wrapper main #contenu .movieDesc .descrition h1 {
   margin-bottom: 50px;
 }
+* body #wrapper main #contenu .movieDesc .descrition .movieCast .movieCastTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+* body #wrapper main #contenu .movieDesc .descrition .movieCast .movieCastTitle a {
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
 * body #wrapper main #contenu #listActors {
   display: flex;
   flex-wrap: wrap;

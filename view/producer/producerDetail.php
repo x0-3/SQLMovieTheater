@@ -11,7 +11,7 @@ $producer = $stmt->fetch();
     </figure>
 
     <div class="description">
-        <h3><?=$producer['NAME']?><?=$producer['familyName']?></h3>
+        <h3><?=$producer['NAME'] . " " . $producer['familyName']?></h3>
         <p>gender : <?=$producer['gender']?></p>
         <p>birthday : <?=$producer['birthday']?></p>
         <p><?=$producer['age']?> Y/o</p>

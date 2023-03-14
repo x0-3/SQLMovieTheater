@@ -29,7 +29,13 @@
         
         <!-- fetch the role played in the movie -->
         <div class="movieCast">
-            <p>moviecasts</p>
+            <div class="movieCastTitle">
+                <p>moviecasts</p>
+                <?php foreach($stmt->fetchAll() as $movieCast){ ?>
+                    <a href="index.php?action=movieCastForm&id=<?=$movieCast['idMovie']?>">add moviecast</a>
+                <?php } ?>
+            </div>
+
             <?php
             foreach($stmt2->fetchAll() as $cast){?>
                 <div class="moviecasts">
