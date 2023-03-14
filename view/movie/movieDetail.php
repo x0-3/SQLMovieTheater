@@ -31,9 +31,7 @@
         <div class="movieCast">
             <div class="movieCastTitle">
                 <p>moviecasts</p>
-                <?php foreach($stmt->fetchAll() as $movieCast){ ?>
-                    <a href="index.php?action=movieCastForm&id=<?=$movieCast['idMovie']?>">add moviecast</a>
-                <?php } ?>
+                <a href="index.php?action=movieCastForm&id=<?=$movie['idMovie']?>">add moviecast</a>
             </div>
 
             <?php

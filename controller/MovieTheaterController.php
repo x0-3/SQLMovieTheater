@@ -287,6 +287,8 @@ class MovieTheaterController{
         ON pr.idPerson = p.idPerson
         ");
 
+        
+
         $stmt2 = $pdo->query("SELECT idGenre, genreName
         FROM genre
         ");
@@ -309,12 +311,18 @@ class MovieTheaterController{
 
     }
 
+
     public function movieCastForm($id){
         $pdo = Connect :: Connection();
 
         $stmt = $pdo->prepare("SELECT idMovie, title
         FROM movie m
+        WHERE idMovie = :id
         ");
+
+        $stmt ->execute([
+            "id"=>$id,
+        ]);
 
         $stmt2 = $pdo->query("SELECT idActor, familyName, name
         FROM actor a

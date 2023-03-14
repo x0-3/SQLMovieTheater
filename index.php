@@ -152,17 +152,16 @@ if(isset($_GET['action'])){
         case "movieCastForm": $ctrlMovieTheater->movieCastForm($id); break;
 
         case "addMovieCast": 
-
             if(isset($_POST['submit'])){
-                
-                $idMovie = $_POST['idMovie'];
+
+                // get the idMovie from the action form
+                $idMovie = $_GET['idMovie'];
                 $idActor = $_POST['idActor'];
                 $idRole = $_POST['idRole'];
     
                 $ctrlMovieTheater->addMovieCast($idMovie,$idActor, $idRole); 
             }
-
-            header("location:index.php?action=movieCastForm");
+            header("location:index.php?action=listFilms");
         break;
             
     }
