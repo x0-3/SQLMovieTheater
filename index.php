@@ -43,7 +43,9 @@ if(isset($_GET['action'])){
                 $gender = filter_input(INPUT_POST, "gender", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $photo = filter_input(INPUT_POST, "photo", FILTER_SANITIZE_URL);
                 
-                $ctrlMovieTheater->addActor($familyName,$name,$gender,$birthday,$photo);  
+                if($familyName && $name && $gender && $photo){
+                    $ctrlMovieTheater->addActor($familyName,$name,$gender,$birthday,$photo);  
+                }
             }
             // redirect to the list actor page
             header("location:index.php?action=listActors");
@@ -70,7 +72,9 @@ if(isset($_GET['action'])){
                 $gender = filter_input(INPUT_POST, "gender", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $photo = filter_input(INPUT_POST, "photo", FILTER_SANITIZE_URL);
 
-                $ctrlMovieTheater->addProducer($familyName,$name,$gender,$birthday,$photo);
+                if($familyName && $name && $gender && $photo){
+                    $ctrlMovieTheater->addProducer($familyName,$name,$gender,$birthday,$photo);
+                }
             }
             header("location:index.php?action=listProducers");
         break;
@@ -88,7 +92,9 @@ if(isset($_GET['action'])){
 
                 $genreName = filter_input(INPUT_POST,"genreName",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-                $ctrlMovieTheater->addGenre($genreName);
+                if($genreName){
+                    $ctrlMovieTheater->addGenre($genreName);
+                }
             }
             header("location:index.php?action=listGenres");
         break;
@@ -105,17 +111,17 @@ if(isset($_GET['action'])){
 
                 $roleName = filter_input(INPUT_POST,"roleName",FILTER_SANITIZE_SPECIAL_CHARS);
 
-                $ctrlMovieTheater->addRole($roleName);
+                if($roleName){
+                    $ctrlMovieTheater->addRole($roleName);
+                }
             }
         
         break;
 
 
-        // FIXME:
         // movie form page and get the producer in options
         case "MovieFormPage": $ctrlMovieTheater->addMovieProducer();break; 
         
-        // FIXME:
         // add movie to db
         case "addMovie":
 
@@ -126,13 +132,20 @@ if(isset($_GET['action'])){
                 $synopsis = $_POST['synopsis'];
                 $poster = $_POST['poster'];
                 $idProducer = $_POST['idProducer'];
+                $idGenre = $_POST['idGenre'];
 
                 $title = filter_input(INPUT_POST,"title",FILTER_SANITIZE_SPECIAL_CHARS);
+                $runningTime = filter_input(INPUT_POST,"runningTime",FILTER_SANITIZE_NUMBER_INT);
                 $synopsis = filter_input(INPUT_POST,"synopsis",FILTER_SANITIZE_NUMBER_FLOAT);
                 $poster = filter_input(INPUT_POST,"poster",FILTER_SANITIZE_URL);
+
+                if($title && $runningTime && $synopsis && $poster){
+                    $ctrlMovieTheater->addMovie($title,$releaseDate,$runningTime,$synopsis,$poster,$idProducer,$idGenre);
+
+                }
                  
-                $ctrlMovieTheater->addMovie($title,$releaseDate,$runningTime,$synopsis,$poster,$idProducer);
             }
+            header("location:index.php?action=listFilms");
         break;
 
             
