@@ -200,6 +200,7 @@ class MovieTheaterController{
     }
 
 
+    // insert Producer in db 
     public function addProducer($familyName,$name,$gender,$birthday,$photo){
         $pdo = Connect::Connection();
         $stmt = $pdo->prepare("INSERT INTO person (familyName,NAME,gender,birthday,photo) 
@@ -220,6 +221,7 @@ class MovieTheaterController{
     }
 
 
+    // insert genrre in db 
     public function addGenre($genreName){
         $pdo = Connect::Connection();
         $stmt =$pdo->prepare("INSERT INTO genre (genreName)
@@ -233,7 +235,7 @@ class MovieTheaterController{
     }
 
 
-
+    // insert role in db 
     public function addRole($roleName){
         $pdo = Connect::Connection();
         $stmt = $pdo->prepare("INSERT INTO role (roleName)
@@ -247,6 +249,7 @@ class MovieTheaterController{
     }
 
 
+    // insert movie in db 
     public function addMovie($title,$releaseDate,$runningTime,$synopsis,$poster,$idProducer,$idGenre){
         $pdo = Connect::Connection();
 
@@ -273,11 +276,11 @@ class MovieTheaterController{
         ]);
 
 
-
         require "view/movie/addMovie.php";
     }
 
 
+    // get the producer and the genre  
     public function addMovieProducer(){
         $pdo = Connect::Connection();
         
@@ -297,6 +300,7 @@ class MovieTheaterController{
     }
 
 
+    // insert moviecast in db 
     public function addMovieCast($idMovie,$idActor, $idRole){
         $pdo = Connect :: Connection();
         $stmt = $pdo->prepare("INSERT INTO moviecast (idMovie,idActor, idRole)
@@ -312,6 +316,7 @@ class MovieTheaterController{
     }
 
 
+    // get the info for movie, actor and the role to get it in the movieCast form   
     public function movieCastForm($id){
         $pdo = Connect :: Connection();
 

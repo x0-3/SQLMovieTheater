@@ -1,7 +1,7 @@
 <?php ob_start();
 $movieCast = $stmt->fetch();?>
 
-<!-- in order to retrieve the id it need to be in the action link -->
+<!-- in order to retrieve the id of the movie it need to be in the action link -->
 <form action="index.php?action=addMovieCast&idMovie=<?=$movieCast['idMovie']?>" method="post">
     
     <p>
