@@ -3,7 +3,7 @@
 
 
     
-<form action="index.php?action=addActor" method="post">
+<form action="index.php?action=addActor" method="post" enctype="multipart/form-data">
 
     <p>
         <label for="FamilyName">Enter the lastname :</label>
@@ -28,8 +28,13 @@
 
     <p>
         <label for="photo">Enter the photo :</label>
-        <input type="url" name="photo" id="photo" placeholder="https://exemple.com">
+        <input type="file" name="photo" id="photo" required>
     </p>
+
+    <!-- <p>
+        <label for="photo">Enter the photo :</label>
+        <input type="url" name="photo" id="photo" placeholder="https://exemple.com">
+    </p> -->
 
     <p>
         <input type="submit" id="submitButton" name="submit" value="Add actor">
