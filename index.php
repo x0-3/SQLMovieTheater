@@ -124,22 +124,51 @@ if(isset($_GET['action'])){
         
         // add movie to db
         case "addMovie":
+            $target_dir = "public/img/"; //directory of where the file is going to be
+            $target_file = $target_dir . basename($_FILES["poster"]["name"]); //specifies the path of the img that gonna be uploaded
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); // holds the file extension
 
             if(isset($_POST['submit'])){
                 $title = $_POST['title'];
                 $releaseDate = $_POST['releaseDate'];
                 $runningTime = $_POST['runningTime'];
                 $synopsis = $_POST['synopsis'];
-                $poster = $_POST['poster'];
+                // $poster = $_POST['poster'];
                 $idProducer = $_POST['idProducer'];
                 $idGenre = $_POST['idGenre'];
+                
+                $poster = $target_file; //instance the $target_file variable to the poster in order to insert it in db  
+
+                // Check if image file is a actual image or fake image
+                $check = getimagesize($_FILES["poster"]["tmp_name"]);
+                if($check !== false) {
+                echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+                } else {
+                echo "File is not an image.";
+                $uploadOk = 0;
+                }
+
+                // Check if $uploadOk is set to 0 by an error
+                if ($uploadOk == 0) {
+                    echo "Sorry, your file was not uploaded.";
+                // if everything is ok, try to upload file
+                } else {
+                    if (move_uploaded_file($_FILES["poster"]["tmp_name"], $target_file)) {
+                    echo "The file ". htmlspecialchars( basename( $_FILES["poster"]["name"])). " has been uploaded.";
+                    } else {
+                    echo "Sorry, there was an error uploading your file.";
+                    }
+                }
+
 
                 $title = filter_input(INPUT_POST,"title",FILTER_SANITIZE_SPECIAL_CHARS);
                 $runningTime = filter_input(INPUT_POST,"runningTime",FILTER_SANITIZE_NUMBER_INT);
                 $synopsis = filter_input(INPUT_POST,"synopsis",FILTER_SANITIZE_NUMBER_FLOAT);
-                $poster = filter_input(INPUT_POST,"poster",FILTER_SANITIZE_URL);
+                // $poster = filter_input(INPUT_POST,"poster",FILTER_SANITIZE_URL);
 
-                if($title && $runningTime && $synopsis && $poster){
+                if($title && $runningTime && $synopsis){
                     $ctrlMovieTheater->addMovie($title,$releaseDate,$runningTime,$synopsis,$poster,$idProducer,$idGenre);
 
                 }
@@ -164,6 +193,7 @@ if(isset($_GET['action'])){
                 $ctrlMovieTheater->addMovieCast($idMovie,$idActor, $idRole); 
             }
             header("location:index.php?action=listFilms");
+
         break;
             
     }

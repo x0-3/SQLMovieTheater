@@ -1,6 +1,6 @@
 <?php ob_start();?>
 
-<form action="index.php?action=addMovie" method="post">
+<form action="index.php?action=addMovie" method="post" enctype="multipart/form-data">
 
     <p>
         <label for="title"><strong>Enter the Movie title :</strong></label>
@@ -26,9 +26,14 @@
 
     <p>
         <label for="poster"><strong>Enter the poster :</strong></label>
-        <input type="url" name="poster" id="poster" placeholder="https://exemple.com" required>
+        <input type="file" name="poster" id="poster" required>
     </p>
 
+    <!-- <p>
+        <label for="poster"><strong>Enter the poster :</strong></label>
+        <input type="url" name="poster" id="poster" placeholder="https://exemple.com" required>
+    </p> -->
+    
 
     <p>
         <legend><strong>choose a producer :</strong></legend>
