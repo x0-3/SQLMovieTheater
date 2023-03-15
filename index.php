@@ -312,16 +312,6 @@ if(isset($_GET['action'])){
         break;
 
         case "homePage" : $ctrlMovieTheater->homePage(); break;
-
-        // case "search" :
-        //     if (isset($_POST['search'])) {
-        //         $Name = $_POST['search'];
-
-        //         $ctrlMovieTheater->search();
-        //     }
-            
-            
-        // break;
             
     }
 } else{

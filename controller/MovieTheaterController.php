@@ -358,17 +358,6 @@ class MovieTheaterController{
         require "view/movie/homePage.php";
     }
 
-    // public function search(){
-    //     $pdo = Connect ::Connection();
-
-    //     $stmt = $pdo->query("SELECT title
-    //     FROM movie
-    //     WHERE title LIKE '%title%' LIMIT 5
-    //     ");
-
-    //     require "view/movie/homePage.php";
-    // }
-
 }
 
 
