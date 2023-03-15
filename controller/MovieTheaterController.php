@@ -343,6 +343,21 @@ class MovieTheaterController{
 
     }
 
+    public function homePage(){
+        $pdo = Connect :: Connection();
+
+        $stmt = $pdo->query("SELECT idMovie, title , DATE_FORMAT(releaseDateFrance, '%d/%m/%Y') AS releaseDate,poster
+        FROM movie
+        ORDER BY YEAR(releaseDateFrance) DESC, MONTH(releaseDateFrance)DESC LIMIT 4
+        ");
+
+        $stmt2= $pdo->query("SELECT idMovie, title , DATE_FORMAT(releaseDateFrance, '%d/%m/%Y') AS releaseDate, synopsis,poster
+        FROM movie
+        ORDER BY synopsis DESC LIMIT 4
+        ");
+        require "view/movie/homePage.php";
+    }
+
 }
 
 

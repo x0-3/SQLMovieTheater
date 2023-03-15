@@ -310,8 +310,10 @@ if(isset($_GET['action'])){
             header("location:index.php?action=listFilms");
 
         break;
+
+        case "homePage" : $ctrlMovieTheater->homePage(); break;
             
     }
 } else{
-    $ctrlMovieTheater->listFilms();
+    $ctrlMovieTheater->homePage();
 }
