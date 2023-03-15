@@ -30,7 +30,7 @@ if(isset($_GET['action'])){
         // add an actor to db
         case "addActor":
             $target_dir = "public/upload/"; //directory of where the file is going to be
-            $target_file = $target_dir . basename($_FILES["photo"]["name"]); //specifies the path of the img that gonna be uploaded
+            $target_file = $target_dir . basename(uniqid().$_FILES["photo"]["name"]); //specifies the path of the img that gonna be uploaded
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); // holds the file extension
 
@@ -61,7 +61,7 @@ if(isset($_GET['action'])){
                 }
 
                 // Check file size
-                if ($_FILES["photo"]["size"] > 500000) {
+                if ($_FILES["photo"]["size"] > 200000) {
                     echo "Sorry, your file is too large.";
                     $uploadOk = 0;
                 }
@@ -106,7 +106,7 @@ if(isset($_GET['action'])){
         // add a Producer to db
         case "addProducer":
             $target_dir = "public/upload/"; //directory of where the file is going to be
-            $target_file = $target_dir . basename($_FILES["photo"]["name"]); //specifies the path of the img that gonna be uploaded
+            $target_file = $target_dir . basename(uniqid().$_FILES["photo"]["name"]); //specifies the path of the img that gonna be uploaded
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); // holds the file extension
 
@@ -137,7 +137,7 @@ if(isset($_GET['action'])){
                 }
 
                 // Check file size
-                if ($_FILES["photo"]["size"] > 500000) {
+                if ($_FILES["photo"]["size"] > 200000) {
                     echo "Sorry, your file is too large.";
                     $uploadOk = 0;
                 }
@@ -221,7 +221,7 @@ if(isset($_GET['action'])){
         // add movie to db
         case "addMovie":
             $target_dir = "public/upload/"; //directory of where the file is going to be
-            $target_file = $target_dir . basename($_FILES["poster"]["name"]); //specifies the path of the img that gonna be uploaded
+            $target_file = $target_dir . basename(uniqid().$_FILES["poster"]["name"]); //specifies the path of the img that gonna be uploaded
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); // holds the file extension
 
@@ -271,7 +271,7 @@ if(isset($_GET['action'])){
                 // if everything is ok, try to upload file
                 } else {
                     if (move_uploaded_file($_FILES["poster"]["tmp_name"], $target_file)) {
-                    echo "The file ". htmlspecialchars( basename( $_FILES["poster"]["name"])). " has been uploaded.";
+                    echo "The file ". htmlspecialchars( basename($_FILES["poster"]["name"])). " has been uploaded.";
                     } else {
                     echo "Sorry, there was an error uploading your file.";
                     }
