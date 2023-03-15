@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="public/js/app.js"></script>
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/style.css.map">
     <title><?= $title ?></title>
@@ -37,7 +39,9 @@
             </ul>
         </nav>
 
-        <a href="#">SEARCH</a> 
+        <!-- <a href="#">SEARCH</a> -->
+        <!-- <input type="text" name="typeahead"> -->
+
     </header>
     
 
