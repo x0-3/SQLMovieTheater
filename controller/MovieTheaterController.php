@@ -355,8 +355,30 @@ class MovieTheaterController{
         FROM movie
         ORDER BY synopsis DESC LIMIT 4
         ");
+
         require "view/movie/homePage.php";
     }
+
+    public function search($title){
+        $pdo = Connect::Connection();
+        $stmt = $pdo->prepare("SELECT idMovie, title, poster
+		FROM movie
+		WHERE title LIKE :title LIMIT 5
+        ");
+
+        $stmt->execute(["title"=>"%". $title. "%"]);
+
+        require "view/movie/search.php";
+    }
+
+    // public function searchPage(){
+    //     $pdo = Connect::Connection();
+    //     $stmt = $pdo->query("SELECT idMovie, title
+	// 	FROM movie
+    //     ");
+
+    //     require "view/movie/search.php";
+    // }
 
 }
 

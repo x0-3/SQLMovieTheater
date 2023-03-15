@@ -312,6 +312,20 @@ if(isset($_GET['action'])){
         break;
 
         case "homePage" : $ctrlMovieTheater->homePage(); break;
+
+
+        case "search" : 
+            if(isset($_POST['submit'])){
+                $title = $_POST['search'];
+
+                $title = filter_input(INPUT_POST, "search", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                if($title){
+                    $ctrlMovieTheater->search($title);
+                }
+            }
+        
+        break;
             
     }
 } else{

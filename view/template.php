@@ -38,6 +38,18 @@
             </ul>
         </nav>
 
+        <form action="index.php?action=search" method="post">
+
+            <p>
+                <input type="search" name="search" id="search">
+            
+            </p>
+
+            <p>
+                <input type="submit" id="submitButton" name="submit" value="search">
+            </p>
+        </form>
+        
     </header>
     
 
