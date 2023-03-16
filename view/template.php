@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/adba52364d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/style.css.map">
     <title><?= $title ?></title>
@@ -17,7 +18,14 @@
 
     <header>
         <nav>
+            
+            <figure>
+                <a href="index.php?action=homePage">
+                    <img src="public/img/logo.png" alt="logo">
+                </a>
+            </figure>
             <ul>
+                <!-- <li><a href="index.php?action=homePage">HOME</a></li> -->
                 <li><a href="index.php?action=listFilms">MOVIE</a></li>
                 <li><a href="index.php?action=listActors">ACTORS</a></li>
                 <li><a href="index.php?action=listRoles">ROLES</a></li>
@@ -40,14 +48,12 @@
 
         <form action="index.php?action=search" method="post">
 
-            <p>
-                <input type="search" name="search" id="search">
+            <input type="search" name="search" id="search" placeholder="search..." autocomplete="on">
             
-            </p>
+            <input type="submit" id="submitButton" name="submit" value="search">
 
-            <p>
-                <input type="submit" id="submitButton" name="submit" value="search">
-            </p>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            
         </form>
         
     </header>
