@@ -221,6 +221,7 @@ if(isset($_GET['action'])){
         // add movie to db
         case "addMovie":
             $target_dir = "public/upload/"; //directory of where the file is going to be
+            // use uniqid to generate an name in addition to the OG file name
             $target_file = $target_dir . basename(uniqid().$_FILES["poster"]["name"]); //specifies the path of the img that gonna be uploaded
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); // holds the file extension
@@ -277,11 +278,10 @@ if(isset($_GET['action'])){
                     }
                 }
 
-
+                // security 
                 $title = filter_input(INPUT_POST,"title",FILTER_SANITIZE_SPECIAL_CHARS);
                 $runningTime = filter_input(INPUT_POST,"runningTime",FILTER_SANITIZE_NUMBER_INT);
                 $synopsis = filter_input(INPUT_POST,"synopsis",FILTER_SANITIZE_NUMBER_FLOAT);
-                // $poster = filter_input(INPUT_POST,"poster",FILTER_SANITIZE_URL);
 
                 if($title && $runningTime && $synopsis){
                     $ctrlMovieTheater->addMovie($title,$releaseDate,$runningTime,$synopsis,$poster,$idProducer,$idGenre);
@@ -328,14 +328,17 @@ if(isset($_GET['action'])){
         
         // break;
 
+
         // WITH AJAX
         case "liveSearch" :
             if (isset($_POST['s'])) {
                 
                 $title = $_POST['s'];
-    
+
+                $title = filter_input(INPUT_POST, "s", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
                 $ctrlMovieTheater->liveSearch($title);
-            }
+            } 
         break;
     }
 } else{

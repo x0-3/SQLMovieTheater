@@ -60,7 +60,7 @@
             <div class="s-box">
                 <input type="text" name="s-input" id="input" autocomplete="off">
                 <i class="fa-solid fa-magnifying-glass"></i>
-    
+
                 
             </div>
             <ul id="searchResult" class="searchResult"></ul>

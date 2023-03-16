@@ -343,6 +343,8 @@ class MovieTheaterController{
 
     }
 
+
+    // show the most recent movies and the best rated 
     public function homePage(){
         $pdo = Connect :: Connection();
 
@@ -359,7 +361,11 @@ class MovieTheaterController{
         require "view/movie/homePage.php";
     }
 
+
+    //  SEARCH BAR
+
     // WITHOUT AJAX
+    
     // public function search($title){
     //     $pdo = Connect::Connection();
     //     $stmt = $pdo->prepare("SELECT idMovie, title, poster
@@ -378,7 +384,7 @@ class MovieTheaterController{
         $pdo = Connect::Connection();
         $stmt = $pdo->prepare("SELECT idMovie, title, poster
 		FROM movie
-		WHERE title LIKE :title LIMIT 5
+		WHERE title LIKE :title limit 3
         ");
 
         $stmt->execute(["title"=>"%". $title. "%"]);
