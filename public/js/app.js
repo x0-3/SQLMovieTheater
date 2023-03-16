@@ -1,22 +1,28 @@
-// $(document).ready(function(){
+$(document).ready(function(){
 
-//     $("#live_search").keyup(function(){
-//         var input = $(this).val();
-//         // alert(input);
+    function fetchData(){
+        var s = $("#input").val();
+        
+        if(s == ''){
+            $('#searchResult').css('display','none');
+        }
+        $.post("index.php?action=liveSearch", {
+            s:s
+        }, 
+        function(data, status){
+            if (data != "not found") {
+                $('#searchResult').css('display','block');
+                $('#searchResult').html(data);
+            }
+        });
+    }
+    $('#input').on('input', fetchData);
 
-//         if(input != ""){
-//             $.ajax({
+    $('body').on('click', ()=>{
+        $('#searchResult').css('display','none');
+    });
 
-//                 url: "view/liveSearch.php",
-//                 method: "POST",
-//                 data : { input:input },
+    $('#input').on('click', fetchData);
 
-//                 success:function(data){
-//                     $("#searchresult").html(data);
-//                 }
-//             });
-//         }else{
-//             $("#searchresult").css("display", "none");
-//         }
-//     });
-// });
+    
+});

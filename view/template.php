@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/adba52364d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/style.css.map">
@@ -25,7 +24,6 @@
                 </a>
             </figure>
             <ul>
-                <!-- <li><a href="index.php?action=homePage">HOME</a></li> -->
                 <li><a href="index.php?action=listFilms">MOVIE</a></li>
                 <li><a href="index.php?action=listActors">ACTORS</a></li>
                 <li><a href="index.php?action=listRoles">ROLES</a></li>
@@ -46,7 +44,8 @@
             </ul>
         </nav>
 
-        <form action="index.php?action=search" method="post">
+        <!-- WITHOUT AJAX -->
+        <!-- <form action="index.php?action=search" method="post">
 
             <input type="search" name="search" id="search" placeholder="search..." autocomplete="on">
             
@@ -54,6 +53,18 @@
 
             <i class="fa-solid fa-magnifying-glass"></i>
             
+        </form> -->
+
+        <!-- // AJAX -->
+        <form action="#">
+            <div class="s-box">
+                <input type="text" name="s-input" id="input" autocomplete="off">
+                <i class="fa-solid fa-magnifying-glass"></i>
+    
+                
+            </div>
+            <ul id="searchResult" class="searchResult"></ul>
+
         </form>
         
     </header>
@@ -89,8 +100,8 @@
         </div>
     </footer>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="public/js/app.js"></script>
-
 </body>
 </html>
 

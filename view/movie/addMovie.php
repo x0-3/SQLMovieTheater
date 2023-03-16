@@ -29,12 +29,6 @@
         <input type="file" name="poster" id="poster" required>
     </p>
 
-    <!-- <p>
-        <label for="poster"><strong>Enter the poster :</strong></label>
-        <input type="url" name="poster" id="poster" placeholder="https://exemple.com" required>
-    </p> -->
-    
-
     <p>
         <legend><strong>choose a producer :</strong></legend>
         

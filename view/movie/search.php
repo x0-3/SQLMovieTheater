@@ -1,3 +1,4 @@
+<!-- WITHOUT AJAX -->
 <?php ob_start();?>
 
 
