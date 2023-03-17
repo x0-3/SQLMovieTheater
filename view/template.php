@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/adba52364d.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+     
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/style.css.map">
     <title><?= $title ?></title>
@@ -90,7 +96,7 @@
                 <li><a href="#">Legal</a></li>
                 <li><a href="#">Licensing</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="#">Sitemap</a></li>
+                <li><a href="index.php?action=siteMap">Sitemap</a></li>
             </ul>
         </div>
 
@@ -99,7 +105,7 @@
             <a href="#" class="fa fa-twitter"></a>  
         </div>
     </footer>
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="public/js/app.js"></script>
 </body>

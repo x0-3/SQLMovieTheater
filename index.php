@@ -340,6 +340,11 @@ if(isset($_GET['action'])){
                 $ctrlMovieTheater->liveSearch($title);
             } 
         break;
+
+        case "siteMap" :
+
+            require "view/footer_link/siteMap.php";
+        break;
     }
 } else{
     $ctrlMovieTheater->homePage();

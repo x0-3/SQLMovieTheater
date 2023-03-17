@@ -366,6 +366,17 @@
 * body #wrapper main #contenu form p #submitButton:hover {
   color: #3e5eb2;
 }
+* body #wrapper main #contenu .leafletMap {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+* body #wrapper main #contenu .leafletMap #map {
+  height: 70vh;
+  width: 80%;
+}
 * body footer {
   display: flex;
   width: 100%;

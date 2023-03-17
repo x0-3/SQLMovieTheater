@@ -1,3 +1,5 @@
+// LIVE SEARCH
+
 // waits for the document to be fully loaded and ready to be manipulated, and then executes the function
 $(document).ready(function(){
 
@@ -46,3 +48,19 @@ $(document).ready(function(){
 
     
 });
+
+
+// LEAFLET API
+
+// display the map
+var map = L.map('map').setView([50.4501, 30.5234], 5);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+
+var marker = L.marker([50.4501, 30.5234],
+    {alt: 'Kyiv'}).addTo(map) // "Kyiv" is the accessible name of this marker
+    .bindPopup('Kyiv, Ukraine is the birthplace of Leaflet!');

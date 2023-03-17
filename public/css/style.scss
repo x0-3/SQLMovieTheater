@@ -501,6 +501,20 @@
 
                         }
                     }
+
+                    .leafletMap{
+                        height: 100vh;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        
+                        #map{
+                            height: 70vh;
+                            width: 80%;
+                        }
+
+                    }
                     
                 }
             }
