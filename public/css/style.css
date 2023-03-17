@@ -34,6 +34,9 @@
   text-decoration: none;
   color: black;
 }
+* body header nav ul li a:hover {
+  color: #3e5eb2;
+}
 * body header nav ul #dropdown {
   position: relative;
   display: inline-block;
@@ -42,6 +45,11 @@
   padding: 10px;
   font-size: 16px;
   border: none;
+  cursor: pointer;
+}
+* body header nav ul #dropdown button:hover {
+  background-color: #3e5eb2;
+  color: white;
 }
 * body header nav ul #dropdown #dropdownContent {
   display: none;
@@ -56,6 +64,9 @@
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+}
+* body header nav ul #dropdown #dropdownContent a:hover {
+  color: #3e5eb2;
 }
 * body header nav ul #dropdown:hover #dropdownContent {
   display: flex;
@@ -110,12 +121,17 @@
 * body #wrapper main #contenu h2, * body #wrapper main #contenu .FeaturedMovies {
   padding: 25px 85px;
 }
+* body #wrapper main #contenu .movieDesc, * body #wrapper main #contenu #actorDetailSection, * body #wrapper main #contenu #producerDetailSection, * body #wrapper main #contenu #genreDetailSection {
+  height: 100vh;
+}
+* body #wrapper main #contenu .FeaturedMovies, * body #wrapper main #contenu #listActors, * body #wrapper main #contenu #RolesSection {
+  margin: 60px 0;
+}
 * body #wrapper main #contenu .FeaturedMovies {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
 }
 * body #wrapper main #contenu .FeaturedMovies a {
   width: 21%;
@@ -125,6 +141,7 @@
 * body #wrapper main #contenu .FeaturedMovies a figure {
   width: 100%;
   margin-bottom: 20px;
+  transition: transform 0.2s;
 }
 * body #wrapper main #contenu .FeaturedMovies a figure img {
   width: 100%;
@@ -133,17 +150,25 @@
 * body #wrapper main #contenu .FeaturedMovies a figure figcaption {
   text-align: center;
 }
+* body #wrapper main #contenu .FeaturedMovies a figure:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
 * body #wrapper main #contenu .movieDesc {
   display: flex;
   justify-content: space-around;
-  height: 79vh;
   width: 100%;
+  align-items: center;
 }
 * body #wrapper main #contenu .movieDesc figure {
-  width: 25%;
+  width: 30%;
 }
 * body #wrapper main #contenu .movieDesc figure img {
   width: 100%;
+  border-radius: 20px;
 }
 * body #wrapper main #contenu .movieDesc .descrition {
   width: 25%;
@@ -164,30 +189,53 @@
   border-radius: 5px;
   margin-left: 20px;
 }
+* body #wrapper main #contenu .movieDesc .descrition .movieCast .movieCastTitle a:hover {
+  background-color: #3e5eb2;
+}
+* body #wrapper main #contenu .movieDesc .descrition a {
+  text-decoration: none;
+  color: #3e5eb2;
+}
+* body #wrapper main #contenu .movieDesc .descrition a:hover {
+  color: black;
+}
 * body #wrapper main #contenu #listActors {
   display: flex;
   flex-wrap: wrap;
-  height: 80vh;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 20px;
 }
 * body #wrapper main #contenu #listActors .actorInfo {
   display: flex;
   flex-direction: column;
   margin: 10px;
+  width: 20%;
 }
 * body #wrapper main #contenu #listActors a {
   color: black;
+  text-decoration: none;
+}
+* body #wrapper main #contenu #listActors a:hover {
+  color: #3e5eb2;
 }
 * body #wrapper main #contenu #RolesSection {
   display: flex;
   flex-wrap: wrap;
-  height: 80vh;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 20px;
 }
 * body #wrapper main #contenu #RolesSection .roleList {
   padding: 13px;
+  width: 20%;
+}
+* body #wrapper main #contenu #RolesSection .roleList a {
+  text-decoration: none;
+  color: black;
+}
+* body #wrapper main #contenu #RolesSection .roleList a:hover {
+  color: #3e5eb2;
 }
 * body #wrapper main #contenu .producerSection {
   display: flex;
@@ -195,10 +243,19 @@
   width: 100%;
   height: 80vh;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 20px;
 }
 * body #wrapper main #contenu .producerSection .producerList {
   padding: 13px;
+  width: 20%;
+}
+* body #wrapper main #contenu .producerSection .producerList a {
+  text-decoration: none;
+  color: black;
+}
+* body #wrapper main #contenu .producerSection .producerList a:hover {
+  color: #3e5eb2;
 }
 * body #wrapper main #contenu .genreSection {
   display: flex;
@@ -206,17 +263,22 @@
   width: 100%;
   height: 80vh;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 20px;
 }
 * body #wrapper main #contenu .genreSection a {
   padding: 13px;
+  text-decoration: none;
+  color: black;
+}
+* body #wrapper main #contenu .genreSection a:hover {
+  color: #3e5eb2;
 }
 * body #wrapper main #contenu #producerDetailSection {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 80vh;
   padding: 13px;
 }
 * body #wrapper main #contenu #producerDetailSection figure {
@@ -224,41 +286,54 @@
 }
 * body #wrapper main #contenu #producerDetailSection figure img {
   width: 100%;
+  border-radius: 20px;
 }
 * body #wrapper main #contenu #actorDetailSection {
   display: flex;
   justify-content: space-around;
-  height: 79vh;
   align-items: center;
   padding: 13px;
 }
 * body #wrapper main #contenu #actorDetailSection figure {
-  width: 25%;
+  width: 30%;
 }
 * body #wrapper main #contenu #actorDetailSection figure img {
   width: 100%;
+  border-radius: 20px;
 }
 * body #wrapper main #contenu #genreDetailSection {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
-  height: 71vh;
   margin-top: 79px;
+  flex-wrap: wrap;
 }
 * body #wrapper main #contenu #genreDetailSection a {
-  width: 15%;
   text-decoration: none;
   color: black;
+  width: 21%;
+  text-align: center;
+}
+* body #wrapper main #contenu #genreDetailSection a figure {
+  transition: transform 0.2s;
 }
 * body #wrapper main #contenu #genreDetailSection a figure img {
   width: 100%;
+  border-radius: 20px;
+}
+* body #wrapper main #contenu #genreDetailSection a figure:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
 }
 * body #wrapper main #contenu form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: beige;
+  background-color: #3e5eb2;
   align-items: center;
   margin: 17vh auto;
   padding: 97px;
@@ -269,10 +344,13 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
 }
 * body #wrapper main #contenu form p input {
   padding: 5px;
+  margin: 10px 0 20px 0;
+}
+* body #wrapper main #contenu form p #photo {
+  width: 67%;
 }
 * body #wrapper main #contenu form p #submitButton {
   background-color: black;
@@ -281,6 +359,9 @@
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+* body #wrapper main #contenu form p #submitButton:hover {
+  color: #3e5eb2;
 }
 * body footer {
   display: flex;
@@ -303,6 +384,9 @@
   text-decoration: none;
   color: black;
 }
+* body footer .infos ul li a:hover {
+  color: #3e5eb2;
+}
 * body footer .socials {
   padding: 10px;
   margin: 24px;
@@ -311,4 +395,7 @@
   color: black;
   text-decoration: none;
   font-size: x-large;
+}
+* body footer .socials a:hover {
+  color: #3e5eb2;
 }/*# sourceMappingURL=style.css.map */

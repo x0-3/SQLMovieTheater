@@ -13,7 +13,7 @@
                 <img src="<?=$movieGenre['poster']?>" alt="movie poster">
                 
                 <figcaption>
-                    <p><?=$movieGenre['title']?></p>
+                    <p><strong> <?=$movieGenre['title']?> </strong></p>
                     <p><?=$movieGenre['releaseDate']?></p>
                     <p><?=$movieGenre['RunningTime']?></p>
                 </figcaption>
