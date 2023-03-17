@@ -45,6 +45,8 @@
         </div>
     </div>
 
+    <div class="trailer"></div>
+
 </section>
 
 <?php

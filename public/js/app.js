@@ -1,3 +1,26 @@
+/************************************************************************ IMDb API ************************************************************/
+
+// FIXME: video not showing find a way to get multiple movie trailer
+var settings = {
+    "url": "https://imdb-api.com/en/API/YouTubeTrailer/k_7qbq89hm/tt8760708",    
+    "method": "GET",
+    "timeout": 0,
+  };
+  
+$.ajax(settings).done(function (response) {
+      
+    const trailer = response.videoUrl;
+    const movie = `<video width="320" height="240" controls>
+    <source src="${trailer}" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>`;
+    
+    document.querySelector('.trailer').innerHTML += trailer;
+      
+});
+
+
+
 /************************************************************************ LIVE SEARCH *********************************************************/
 
 // waits for the document to be fully loaded and ready to be manipulated, and then executes the function
@@ -74,5 +97,3 @@ function onMapClick(e) {
 }
 
 map.on('click', onMapClick);
-
-
