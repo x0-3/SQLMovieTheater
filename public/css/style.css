@@ -372,10 +372,16 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 0 30px;
 }
 * body #wrapper main #contenu .leafletMap #map {
+  z-index: 0;
   height: 70vh;
   width: 80%;
+}
+* body #wrapper main #contenu .leafletMap .contactInfo {
+  width: 55%;
+  padding: 0 30px;
 }
 * body footer {
   display: flex;

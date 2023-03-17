@@ -1,4 +1,4 @@
-// LIVE SEARCH
+/************************************************************************ LIVE SEARCH *********************************************************/
 
 // waits for the document to be fully loaded and ready to be manipulated, and then executes the function
 $(document).ready(function(){
@@ -46,14 +46,14 @@ $(document).ready(function(){
     // attached event listener to an input field with ID "input", which triggers the fetchData() function whenever the input field is clicked
     $('#input').on('click', fetchData);
 
-    
 });
 
 
-// LEAFLET API
+
+/************************************************************************ LEAFLET API *********************************************************/
 
 // display the map
-var map = L.map('map').setView([50.4501, 30.5234], 5);
+var map = L.map('map').setView([38.60053, -121.44885], 16);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -61,6 +61,18 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
-var marker = L.marker([50.4501, 30.5234],
-    {alt: 'Kyiv'}).addTo(map) // "Kyiv" is the accessible name of this marker
-    .bindPopup('Kyiv, Ukraine is the birthplace of Leaflet!');
+// display the marker in a specific location
+var marker = L.marker([38.60053, -121.44885]).addTo(map);
+marker.bindPopup("<b>San Luis Obispo, California(CA), 93401</b> </br>2634 Leisure Lane").openPopup(); // bind a pop up to the marker and display a message 
+
+
+// shows a popup with the coordinate of the location clicked (latitude, longitude) 
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(map);
+}
+
+map.on('click', onMapClick);
+
+

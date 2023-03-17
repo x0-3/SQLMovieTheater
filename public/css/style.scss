@@ -508,10 +508,17 @@
                         justify-content: center;
                         align-items: center;
                         width: 100%;
+                        margin: 0 30px;
                         
                         #map{
+                            z-index: 0;
                             height: 70vh;
                             width: 80%;
+                        }
+
+                        .contactInfo{
+                            width: 55%;
+                            padding: 0 30px;
                         }
 
                     }

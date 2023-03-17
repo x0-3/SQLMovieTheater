@@ -341,6 +341,7 @@ if(isset($_GET['action'])){
             } 
         break;
 
+        // redirect to the siteMap
         case "siteMap" :
 
             require "view/footer_link/siteMap.php";
