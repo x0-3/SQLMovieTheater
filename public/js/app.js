@@ -5,17 +5,17 @@ var settings = {
     "url": "https://imdb-api.com/en/API/YouTubeTrailer/k_7qbq89hm/tt8760708",    
     "method": "GET",
     "timeout": 0,
-  };
+};
   
 $.ajax(settings).done(function (response) {
-      
-    const trailer = response.videoUrl;
-    const movie = `<video width="320" height="240" controls>
-    <source src="${trailer}" type="video/mp4">
-    Your browser does not support the video tag.
-    </video>`;
     
-    document.querySelector('.trailer').innerHTML += trailer;
+    
+    const trailer = response.videoUrl;
+    const movie = `<iframe src="${trailer}"></iframe>`;
+    
+    const test = document.querySelector('.trailer').innerHTML += movie;
+    
+    console.log(movie);
       
 });
 
