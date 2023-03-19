@@ -210,8 +210,8 @@
   justify-content: center;
 }
 * body #wrapper main #contenu .movieDesc .trailer iframe {
-  width: 85.5%;
-  height: 76vh;
+  width: 858px;
+  height: 480px;
 }
 * body #wrapper main #contenu #listActors {
   display: flex;
