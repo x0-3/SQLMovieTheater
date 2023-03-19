@@ -1,22 +1,20 @@
 /************************************************************************ IMDb API ************************************************************/
 
-// FIXME: video not showing find a way to get multiple movie trailer
+// FIXME: find a way to get multiple movie trailer
+
 var settings = {
-    "url": "https://imdb-api.com/en/API/YouTubeTrailer/k_7qbq89hm/tt8760708",    
+    "url": "https://imdb-api.com/en/API/Trailer/k_7qbq89hm/tt8760708",
     "method": "GET",
     "timeout": 0,
 };
   
 $.ajax(settings).done(function (response) {
-    
-    
-    const trailer = response.videoUrl;
+    console.log(response);
+
+    const trailer = response.linkEmbed;
     const movie = `<iframe src="${trailer}"></iframe>`;
-    
-    const test = document.querySelector('.trailer').innerHTML += movie;
-    
-    console.log(movie);
-      
+
+    document.querySelector('.trailer').innerHTML += movie;
 });
 
 
