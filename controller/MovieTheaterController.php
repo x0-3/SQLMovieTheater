@@ -391,12 +391,4 @@ class MovieTheaterController{
 
         require "view/movie/liveSearch.php";
     }
-    
-
 }
-
-
-
-
-
-

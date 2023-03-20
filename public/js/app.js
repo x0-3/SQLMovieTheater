@@ -1,21 +1,29 @@
-/************************************************************************ IMDb API ************************************************************/
+/************************************************************************ IMDb trailer API ************************************************************/
 
-// FIXME: find a way to get multiple movie trailer
+// FIXME: get id to show the corresponding trailer for the movie
 
-var settings = {
-    "url": "https://imdb-api.com/en/API/Trailer/k_7qbq89hm/tt8760708",
-    "method": "GET",
-    "timeout": 0,
-};
-  
+// movie id in imdb
+const url = ["tt8760708","tt3581920","tt10366206", "tt10838180", "tt0133093", "tt0372784", "tt14208870", "tt2975590"];
+
+for(let i = 0; i < url.length; i++){
+
+    var settings = {
+        "url": "https://imdb-api.com/en/API/Trailer/k_7qbq89hm/" + url[i],
+        "method": "GET",
+        "timeout": 0,
+    };
+    console.log(settings);
+}
+
 $.ajax(settings).done(function (response) {
     console.log(response);
-
+    
     const trailer = response.linkEmbed;
     const movie = `<iframe src="${trailer}"></iframe>`;
-
+    
     document.querySelector('.trailer').innerHTML += movie;
-});
+})
+  
 
 
 
