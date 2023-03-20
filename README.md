@@ -1,6 +1,6 @@
 # SQLMovieTheater
 
-### <div align="center">A php app that retrieves data from a database of movies, with movie genres and actors with there movie roles.
+### <div align="center">A php app that retrieves data from a database of movies, with movie genres and actors with there movie roles. With Leaflet API.
 </div>  
   
 
